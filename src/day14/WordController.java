@@ -18,34 +18,43 @@ public class WordController {
 	
 	public void add(String word, String meaning) {
 		dio.put(word, meaning);
-		System.out.println(word + "단어추가.");
+		System.out.println(word + "단어 추가됨.");
 	}
+	
 	public void searchWord(String word) {
         if (dio.containsKey(word)) {
             System.out.println(word + ": " + dio.get(word));
         } else {
-            System.out.println("단어 : " + word + "없는 단어 입니다.");
+            System.out.println("단어 : " + word + "없는 단어입니다.");
         }
     }
+	
 	public void updateWord(String word, String newMeaning) {
-		if(dio.isEmpty()) {
-			System.out.println("내용이 비어있음");
-		}else{
-			for (Map.Entry<String, String> entry : dio.entrySet()) {
+        if (dio.containsKey(word)) {
+            dio.put(word, newMeaning);
+            System.out.println(word + "의 의미가 수정됨.");
+        } else {
+            System.out.println(word + "는 없는 단어.");
+        }
+    }
+	
+	public void printWords() {
+        if (dio.isEmpty()) {
+            System.out.println("단어장이 비어 있습니다.");
+        } else {
+            for (Map.Entry<String, String> entry : dio.entrySet()) {
                 System.out.println(entry.getKey() + ": " + entry.getValue());
-	      }
-	   }
-	}
+            }
+        }
+    }
 	
 	public void deleteWord(String word) {
         if (dio.containsKey(word)) {
             dio.remove(word);
-            System.out.println(word + "내용 삭제.");
+            System.out.println(word + "단어 삭제됨.");
         } else {
-            System.out.println("단어 : " + word + "내용 없음");
+            System.out.println("단어 : " + word + "없는 내용");
         }
     }
-
-	
 
 }

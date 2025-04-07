@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        atag 
+        - 다른 페이지로 이동하는 태그
+        - 쌍태그 태그안의 글자를 클릭하면 이동하게 됨.
+        - href 속성
+            - 이동할 url, 값이 없으면 현재 페이지에서 새로고침
+            - 속성값이 http:// url로 인식, 없으면 파일로인식 : 내 파일에서 검색
+            - tel : 전화번호로 연결. 모바일에서 주로 사용
+            - mailto : 이메일로 연결
+        - target 속성
+            - _self, _blank, _parent, _top 속성
+            - _self : 기본값, 현재 화면에서 링크를 새로 연결
+            - _blank : 새 창에서 링크를 연결
+            - _parent : 부모창에서 링크를 연결
+             결제창처럼 팝업창이 뜨고 (자식창) 팝업에 대한 값을 반영하여 원래창 (부모창)
+             이 변경되는 경우 사용
+            - _top : 최고조상에서 링크를 연결.
+              다중팝업이 뜰경우 메인 창에서 값을 연결할 경우 사용
+              부모X, 조상X _self와 동일
+        - download 속성
+            - 파일을 다운로드 할 경우 사용
+            - href에는 파일경로가 있고, 속성이 download일 경우 해당파일을 다운로드
+    -->
+
+    <a href="http://www.naver.com" target="_self">naver</a>
+    <a href="http://naver.com" target="_blank">naver_blank</a>
+    <br>
+    <!-- 파일로 인식 : html 파일 -->
+    <a href="06_select.html"> select 파일</a>
+    <a href="06_select.html" download="">select download</a>
+
+    <!-- 파일로 인식 : 파일이 없으면 error -->
+    <a href="naver.com">naver</a>
+
+    <!-- 전화로 연결 : 모바일에서 주로 사용 -->
+    <a href="tel:+8201011111111">전화로 연결</a>
+
+    <!-- 메일로 연결 -->
+    <a href="mailto:miran5093@gmail.com">메일로 문의하기.</a>
+</body>
+</html>

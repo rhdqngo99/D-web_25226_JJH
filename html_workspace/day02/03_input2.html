@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        input 속성
+        모든 태그는 자신의 속성값을 가지고 있음. 
+        <태그명 속성="값" 속성="값" 속성 ....>
+        name : 서버로 전송시 변수명으로 사용되는 속성
+        value : 서버로 전송시 값으로 사용되는 속성
+        type="text" 일반값은 적힌 값이 value가 됨.
+        name = value
+        id : 한페이지에 중복값은 불가능 (중복불가능) : js 에서 태그구분용도로 사용
+             만약 id가 겹치면 에러가 안남. 작동을 하지 않을 수 있음. 
+        class : css / js 구분자 역할을 하는 속성 / 중복가능 / 여러개 가능
+        class="a b ab abc" => 4개의 클래스를 가짐. 
+        readonly : 읽기전용, 서버로 값을 보냄
+        disabled : 비활성화, 서버로 값을 보내지 않음. 
+        tabindex : 탭 키를 눌렀을 때 input 선택 순서를 정할 수 있음. 
+        checked : radio, checkbox에서 기본값으로 선택
+        required : 필수속성
+    -->
+        <form action="">
+            <input type="text" name="a" value="name" required >
+            <input type="text" name="b" value="age" readonly >
+            <input type="text" name="c" value="dis" disabled >
+            <input type="text" name="d" placeholder="test" >
+            <!-- checkbox value 값이 없으면 on 으로 전송 -->
+            <input type="checkbox" name="e" checked> check1
+            <input type="checkbox" name="e" > check2
+
+            <textarea name="content" id="" rows="10" cols="50">
+            </textarea><br>
+            <small>작은 글씨를 쓸 경우</small><br>
+            <!-- <per> 보이는 대로 공백을 인지하는 경우. -->
+            <pre>
+       작은 글씨를 쓸 경우
+            </pre><br>
+            <input type="submit" value="submit">
+        </form>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        background-color : 배경색
+        background-image : 배경이미지
+        - 배경색과 이미지가 둘다 존재하면 이미지가 우선 출력
+        - 배경이미지가 크기가 작을 경우 남는 부분은 배경색 출력
+        background-size : 배경이미지 크기  가로 * 세로 
+        background-repeat : 배경이미지 반복
+          - no-repeat : 반복x
+          - repeat-x : x축으로만 반복
+          - repeat-y : y축으로만 반복
+          - round : 양쪽 반복
+          - 기본값은 반복되는 형태
+        background-position : 배경이미지 위치
+          - center : 가운데
+          - x축 y축 : 값으로 이동
+        background : color image posistion size repeat 순으로 입력
+    -->
+    <style>
+        body{
+            text-align: center;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: antiquewhite;
+            background-image: url(../image/강아지2.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 300px 300px;
+            box-shadow: 5px 5px 5px rgb(45, 107, 53);
+            margin: 0 auto;
+        }
+        .box2{
+            background-color: azure;
+            background-image: url(../image/배경.jpg);
+            width: 70%;
+            height: 600px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box2"></div>
+</body>
+</html>

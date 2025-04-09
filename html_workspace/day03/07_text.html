@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        text : 글자 정렬 상태
+        text-indent : 들여쓰기 (문장에서 첫문단만 들여쓰기)
+        text-align : 가로정렬 left, right, center(가운데), justify(양쪽)
+        text-decoration : 선긋기
+            - none : 없음.
+            - underline : 밑줄
+            - overline : 윗줄
+            - line-through : 가운데줄(취소선)
+    -->
+    <!-- 
+        css 표준 단위
+        px : pixel 픽셀
+        % : 퍼센트 (현재값, 부모기준 %) 값을 기준으로 %
+        em : 배수, 부모값을 기준으로 배수 
+        rem : 배수, 문서의 값을 기준으로 배수
+        cm : 센티미터
+        mm : 밀리미터
+        in : 인치  1in = 96px
+        pt : 포인터  1pt = 1/72in
+        pc : 피카소, 1pc = 12pt
+        deg : 각도, 90deg
+    -->
+
+    <!-- 
+        text-overflow : 텍스트가 범위를 넘어가는 경우. (...) ellipsis
+        white-space : 글자가 넘어가면 넘어간 글자들을 어떻게 처리할 것인지...
+          - nowrap : 한줄로 처리  - wrap : 줄바꿈
+        overflow : 요소가 넘어가면 어떻게 처리할 것인지...
+          - hidden : 숨김    - scroll : 스크롤바 생성  - auto
+    -->
+    <style>
+        p{
+            text-indent: 20px;
+            text-align: justify;
+        }
+        .line{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <p class="line">
+        안녕하세요. 홍길동입니다.
+        안녕하세요. 홍길동입니다.
+        안녕하세요. 홍길동입니다.
+        안녕하세요. 홍길동입니다.
+        안녕하세요. 홍길동입니다.
+    </p>
+    <p>
+        안녕하세요. 홍길동입니다.
+        안녕하세요. 홍길동입니다.
+        안녕하세요. 홍길동입니다.
+        안녕하세요. 홍길동입니다.
+        안녕하세요. 홍길동입니다.
+    </p>
+</body>
+</html>

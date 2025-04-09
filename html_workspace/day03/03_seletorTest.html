@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        div 3개를 만들어
+        naver, google, daum 사이트로 연결이 되게 하고, 
+        naver는 초록색, google, daum 에 글자색, 글꼴 스타일을 달리 주기.
+        atag 는 링크를 클릭한 후의 글꼴색이 달라짐.
+        가상선택자(의사선택자)
+        a:visited (링크를 눌러본 후 색)
+        a:link(방문 전)
+
+        :first-child, :last-child : 첫번째 요소, 마지막요소
+        :after : ~뒤에 가상요소를 삽입
+        :before : ~앞에 가상요소를 삽입
+
+    -->
+    <style>
+        .div1{
+            color: darkgreen;
+        }
+        .div1>a{
+            color: aqua;
+        }
+        div>a{
+            color: blue;
+        }
+        div>a:visited{
+            color: rgb(170, 161, 230);
+        }
+        ol>li{
+            font-size: 20px;
+            list-style: none; /* 리스트의 스타일을 없앰 */
+            display: inline; /* block tag의 성격을 inline으로 변경 */
+            margin-right: 20px;
+        }
+        ol>li:nth-child(even){
+            color: red;
+        }
+        ol>li:nth-child(3n){
+            color: green;
+        }
+        ol>li:first-child, li:last-child{
+            font-weight: 700;
+        }
+        ol>li::after{
+            content: " |";
+        }
+        ol>li::before{
+            content: "li ";
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"><a href="http://www.naver.com">naver</a></div>
+    <div><a href="http://google.com">google</a></div>
+    <div><a href="http://daum.net">daum</a></div>
+
+    <a href="http://naver.com"><div class="div1">naver</div></a>
+    <!-- 
+        전체 글자 크기 20px
+        짝수만 : 빨간색
+        3,6,9 : 초록색
+        1, 10 : 굵게 설정
+    -->
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ol>
+</body>
+</html>

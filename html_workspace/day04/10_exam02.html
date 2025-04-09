@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .menu-box{
+            width: 200px;
+            float: left;
+        }
+        .menu-box>a{
+            text-decoration: none;
+            display: block;
+            border: 1px solid black;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            color: black;
+            font-size: 17px;
+        }
+        .menu-box>a:hover{
+            background-color: yellow;
+        }
+        .image-box{
+            width: calc(100% - 210px);
+            height: 500px;
+            background-image: url(../image/seoul.jpg);
+            float: right;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="round">
+        <div class="menu-box">
+            <a href="">menu1</a>
+            <a href="">menu2</a>
+            <a href="">menu3</a>
+            <a href="">menu4</a>
+        </div>
+        <div class="image-box"></div>
+    </div>
+</body>
+</html>

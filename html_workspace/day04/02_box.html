@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- 
+        width : 컨텐츠의 가로 길이
+        box-sizing : box의 크기를 지정하는 속성
+        box-sizing에 따라 width의 크기가 컨텐츠의 가로길이가 될수도 있고, 
+        박스 전체의 가로 길이가 될수도 있음. 
+        - border-box : width = 컨텐츠가로 + 패딩 + 테두리
+        - content-box : width = 컨텐츠 가로
+        width=100px / padding=5px  / border=1px
+        - border-box : 5*2 + 1*2 + content(88px) = 100px
+        - content-box : 100px + 5px + 5px + 1px + 1px = 112px
+    -->
+    <style>
+        .box1{
+            /* 양쪽 패딩 20px, 선 1px  = 100px*/
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            padding: 0 20px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        .box2{
+            /* 양쪽 패딩 20px, 선 1px  = 100px*/
+            width: 100px;
+            height: 100px;
+            background-color: rgb(109, 153, 223);
+            padding: 0 20px;
+            border: 1px solid black;
+            box-sizing: content-box;
+        }
+        .box{
+            width: 100px;
+            height: 30px;
+            background-color: #03c75a;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            font-family: "Work Sans", sans-serif;
+            line-height: 30px;
+            font-weight: 700;
+            
+        }
+        .box:hover{
+            background-color: #2ef386;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+
+    <!-- naver로 이동하는 버튼 생성 새창열어서 이동 / 마우스 올리면 변경 -->
+    <!-- atag는 inline 형태이기 때문에 크기를 지정할 수 없음 -->
+     <a href="http://www.naver.com" target="_blank">
+         <div class="box">naver</div>
+     </a>
+</body>
+</html>

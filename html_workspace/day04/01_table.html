@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            /* 테이블의 선을 한줄로 만들기 */
+            border-collapse: collapse;
+            width: 70%;
+            margin-bottom: 50px;
+        }
+        table th, td{
+            height: 30px;
+            /*border: 1px solid black;*/
+            text-align: center;
+        }
+        table>thead>tr{
+            background-color: rgb(250, 209, 159);
+            border-top: 2px solid rgb(6, 112, 112);
+            border-bottom: 2px solid rgb(6, 112, 112);
+        }
+        table>tfoot>tr{
+            border-top: 2px solid rgb(6, 112, 112);
+            border-bottom: 2px solid rgb(6, 112, 112);
+        }
+        /*  tbody의 짝수 tr만 bg-color 변경 */
+        table>tbody>tr:nth-child(2n){
+            background-color: azure;
+        }
+        /* 마우스를 올리면 tr 색 bg-color 변경 */
+        table>tbody>tr:hover{
+            background-color: rgb(107, 145, 146);
+            color: aliceblue;
+        }
+        .w20{
+            width: 20%;
+        }
+        .w50{
+            width: 50%;
+        }
+        .w10{
+            width: 10%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 성적표 테이블 생성 -->
+     <table>
+        <caption>성적표</caption>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>성적</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>hong</td>
+                <td>78</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>kim</td>
+                <td>89</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>lee</td>
+                <td>85</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>choi</td>
+                <td>65</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>pack</td>
+                <td>75</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">합계</td>
+                <td>???</td>
+            </tr>
+        </tfoot>
+     </table>
+
+
+     <table>
+        <thead>
+            <tr>
+                <th >번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>날짜</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="w10">1</td>
+                <td class="w50">게시글입니다.</td>
+                <td class="w20">홍길동</td>
+                <td class="w20">2020-11-15</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>게시글입니다.</td>
+                <td>홍길동</td>
+                <td>2020-11-15</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>게시글입니다.</td>
+                <td>홍길동</td>
+                <td>2020-11-15</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>게시글입니다.</td>
+                <td>홍길동</td>
+                <td>2020-11-15</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>게시글입니다.</td>
+                <td>홍길동</td>
+                <td>2020-11-15</td>
+            </tr>
+                        
+        </tbody>
+    </table>
+</body>
+</html>

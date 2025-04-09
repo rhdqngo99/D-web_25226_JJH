@@ -1,0 +1,16 @@
+body{
+    /* 모든 텍스트를 가운데 정렬 */
+    text-align: center;
+}
+/* block tag를 화면의 중앙에 배치하려면
+    margin : auto (자동으로 양쪽에 알아서 배치)
+    margin : 10px;      상하좌우 전체에 10px
+    margin : 10px 20px;     상10px / 좌우20px
+    margin : 10px 20px 30px;     상10px / 좌우20px / 하30px
+    margin : 
+*/
+h1{
+    width: 300px;
+    height: 50;
+    border: 5px solid black;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin: auto;
+            width: 300px;
+            border: 1px solid black;
+            text-align: center;
+        }
+        .top, .bt{
+            width: 90%;
+            height: 50px;
+            border: 3px solid black;
+            margin: 10px auto;
+            font-size: 2em;
+            font-weight: 700;
+            line-height: 50px;
+        }
+        .mid{
+            width: 90%;
+            height: 270px;
+            border: 3px solid black;
+            margin: 10px auto;
+            position: relative;
+        }
+        .red, .green, .blue{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            box-shadow: 5px 5px 5px rgb(193, 193, 193);
+        }
+        .red{
+            background-color: red;
+            top: 40px;
+            left: 40px;
+            z-index: 10;
+        }
+        .green{
+            background-color: green;
+            top: 80px;
+            left: 80px;
+            z-index: 5;
+        }
+        .blue{
+            background-color: blue;
+            top: 120px;
+            left: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top">텍스트</div>
+        <div class="mid">
+            <div class="red"></div>
+            <div class="green"></div>
+            <div class="blue"></div>
+        </div>
+        <div class="bt">텍스트</div>
+    </div>
+</body>
+</html>

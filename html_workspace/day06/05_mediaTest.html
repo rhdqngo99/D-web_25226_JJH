@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100%;
+        }
+        .header{
+            height: 60px;
+            background-color: rgb(186, 186, 186);
+            font-size: 20px;
+            font-weight: 700;
+            padding-left: 40px;
+            line-height: 60px;
+            box-sizing: border-box;
+        }
+        /* media query 변경내용 */
+        .main-img{
+            height: 300px;
+            background-image: url(../image/dark.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+        .description{
+            height: 300px;
+            background-color: white;
+            padding-left: 40px;
+            box-sizing: border-box;
+        }
+        .description>p:first-child{
+            font-weight: 700;
+            color: gray;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        .description>p:nth-child(2){
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .description>p:last-child{
+            font-size: 16px;
+        }
+        .sub-img{
+            height: 350px;
+            background-image: url(../image/main.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .sub-img2{
+            height: 300px;
+            background-image: url(../image/seoul.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-align: center;
+            line-height: 300px;
+        }
+        .sub-img2>a{
+            border: 4px solid white;
+            text-decoration: none;
+            color: white;
+            padding: 10px 40px;
+        }
+        .sub-img3{
+            height: 200px;
+            background-image: url(../image/paris.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        @media screen and (min-width:800px) {
+            .main-img{
+                height: 450px;
+            }
+            .description{
+                height: 300px;
+                background-color: white;
+                padding-left: 40px;
+            }
+            .description>p:first-child{
+                font-weight: 700;
+                color: gray;
+                margin-top: 30px;
+                margin-bottom: 40px;
+            }
+            .description>p:nth-child(2){
+                font-size: 20px;
+                font-weight: 700;
+            }
+            .description>p:last-child{
+                font-size: 16px;
+            }
+            .sub-img{
+                width: 50%;
+                height: 400px;
+                float: left;
+            }
+            .sub-img2{
+                width: 50%;
+                height: 200px;
+                float: right;
+                text-align: center;
+                line-height: 200px;
+            }
+            .sub-img2>a{
+                border: 4px solid white;
+                text-decoration: none;
+                color: white;
+                padding: 10px 40px;
+            }
+            .sub-img3{
+                width: 50%;
+                height: 200px;
+                float: right;
+            }
+        }
+        @media screen and (min-width:1200px) {
+            .main-img{
+                width: 50%;
+                float: left;
+                height: 800px;
+            }
+            .description{
+                width: 50%;
+                float: right;
+                height: 400px;
+                background-color: white;
+                padding-left: 40px;
+            }
+            .description>p:first-child{
+                font-weight: 700;
+                color: gray;
+                margin-top: 30px;
+                margin-bottom: 40px;
+            }
+            .description>p:nth-child(2){
+                font-size: 20px;
+                font-weight: 700;
+            }
+            .description>p:last-child{
+                font-size: 16px;
+            }
+            .sub-img{
+                width: 25%;
+                height: 400px;
+                float: left;
+            }
+            .sub-img2{
+                width: 25%;
+                height: 200px;
+                float: right;
+                text-align: center;
+                line-height: 250px;
+            }
+            .sub-img2>a{
+                border: 4px solid white;
+                text-decoration: none;
+                color: white;
+                padding: 10px 40px;
+            }
+            .sub-img3{
+                width: 25%;
+                height: 200px;
+                float: right;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">IN'O</div>
+    <div class="main-img"></div>
+    <div class="description">
+        <p>Portfolio</p>
+        <p>Make Hardware Soft</p>
+        <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also</p>
+    </div>
+    <div class="sub-img"></div>
+    <div class="sub-img2">
+        <a href="">VIEW MORE</a>
+    </div>
+    <div class="sub-img3"></div>
+</body>
+</html>

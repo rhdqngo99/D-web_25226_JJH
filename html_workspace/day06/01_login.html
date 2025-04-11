@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: bisque;
+            .container{
+                width: 300px;
+                background-color: rgb(154, 214, 214);
+                /* 화면의 정중앙 위치 */
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                border-radius: 10px;
+                padding: 20px 30px;
+            }
+            .text-field, .btn{
+                width: 100%;
+                padding: 10px;
+                font-size: 15px;
+                box-sizing: border-box;
+                margin-bottom: 10px;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+            }
+            .link{
+                margin-top: 30px;
+            }
+            .link>a{
+                text-decoration: none;
+                color: rgb(67, 67, 67);
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <input type="text" class="text-field" name="id" placeholder="아이디">
+            <input type="password" class="text-field" name="pw" placeholder="비밀번호">
+            <input type="submit" class="btn" value="로그인">
+        </form>
+        <div class="link">
+            <a href="">비밀번호를 잊어버리셨나요</a>
+        </div>
+    </div>
+</body>
+</html>

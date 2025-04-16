@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <h1>객체(Object)</h1>
+    <!-- 
+        - object : 데이터의 구조를 상세 특징으로 표현하려는 형식
+        - const 로 선언하는 것이 일반적
+        - 객체의 구조를 지속성있게 유지하고, 확보하기 위함.
+        {
+            키 : 값,
+            키 : 값,
+            키 : 값,
+            ...
+        }
+        - key, value 한 쌍의 값으로 표현
+        - key는 중복 불가능. value은 중복가능.
+        - 객체 내부에서 value의 값으로 사용할 수 있는 데이터는 제한이 없음.
+        - key : function()
+        - 객체 내부의 함수를 익명함수로 정의 => 이름은 key 값이 됨.
+        - 객체 내부의 function() => 메서드 라고 부름.
+    -->
+    <script>
+        const car = {
+            name : 'myCar',
+            year : 2024
+        };
+
+        console.log(car);
+        // 객체의 이름만 찍고 싶음 (특정 key의 value만 출력)
+        console.log(car.name);
+        console.log(car.year);
+
+        // car = 100;  // 재할당 불가능.
+        // console.log(car);
+
+        // 가능은 하지만, 일반적이지 않음. 
+        // 객체의 기능이 사라짐. 
+        let car2 = {
+            name : 'myCar',
+            year : 2024
+        };
+        car2 = 100;  // - 객체를 활용하려고 했던 목적이 사라짐
+        console.log(car2);
+
+        const me = {
+            name: '오미란',
+            age: 20,
+            addr: 'incheon',
+            isDeveloper: true,
+            'hobby' : 'coffee',
+            'myFavor' : 'game',
+            avail: {
+                year: 2020,
+                title : 'javascript',
+                ver : 'ES6+',
+                project: 'Back-End',
+                intro: function(){
+                    console.log(`ex1) ${this.title} : ${this.ver}`);
+                    console.log(me.avail.title+ ":"+ me.avail.project);
+                }
+            },
+            year: 2025
+        };
+        console.log(me);
+        console.log(me.name);
+        console.log(me.age);
+        console.log(me.hobby);
+        console.log(me.avail.title);
+        console.log(me.avail.intro);
+        // 객체 내의 함수를 실행
+        me.avail.intro();
+        console.log(me.year);
+        console.log(me.avail.year);
+        console.log('-----------------');
+        console.log(me['name']);
+        console.log(me['avail']['title']);
+        console.log(me['avail'].ver);
+        me['avail']['intro'](); // 함수실행
+
+        let keyName = 'year';
+        console.log(me[keyName]);
+
+        //객체 생성
+        // 좋아하는 가수의 인적사항, 플레이리스트 3곡
+        // 이름, 나이, 주소, 플레이리스트 객체, 함수(파라미터3개) => 콘솔에 출력
+        const musician={
+            name:'IU',
+            age:20,
+            addr:'seoul',
+            playList:{
+                first:'너랑나',
+                second:'좋은날',
+                third:'밤편지'
+            },
+            jukeBox: function(p1, p2, p3){
+                console.log(p1, p2, p3);
+                console.log(this.playList.first, this.playList.second, this.playList.third);
+                console.log(musician.playList.first)
+            }
+        };
+        let p1 = '어푸';
+        let p2 = '라일락';
+        let p3 = '후라이의꿈';
+        console.log(musician.name+"("+musician.age+")");
+        musician.jukeBox(p1,p2,p3);
+        
+    </script>
+</body>
+</html>

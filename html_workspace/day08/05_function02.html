@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function 02</title>
+</head>
+<body>
+    <h1>함수의 파라미터 / 리턴타입 사용</h1>
+    <!-- 
+        파라미터의 개수는 제한이 없으나, 많으면 관리가 힘듦
+        파라미터는 타입도 제한이 없음. 전달되는 타입을 그대로 사용
+        파라미터의 변수명은 외부 변수명과 같아도, 달라도 상관없음.
+        return 유무에 따라 값을 리턴받을 수도 있고, 종료 시점을 결정.
+    -->
+    <script>
+        let myName = '홍길동';
+
+        function callName(name){
+            let yourName = '순이';
+            console.log(`파라미터 => ${name}`);  //인지가능
+            console.log(`function 외부변수 => ${myName}`); //인지가능
+            console.log(`function 내부변수 => ${yourName}`); //인지가능
+        }
+
+        callName('영이');
+        //console.log(yourName); //function 내부변수이기 때문에 인지 불가능.
+        console.log(myName);
+
+        //return이 있는 함수
+        function sum(num1, num2) {
+            return num1+num2;
+        }
+
+        let s = sum(10,20);
+        console.log(s);
+
+        //표현식 함수 : react, 라이브러리 js에서 사용많이 됨.
+        const myFunc = function(myName){
+            return `Hello ${myName}`;
+        }
+
+        let result = myFunc(myName);
+        console.log(result);
+
+        // 화살표 함수(arrow Function)
+        const arrowFunc = (param1, param2) => {
+            return param1 + param2;
+        }
+
+        let arrowResult = arrowFunc(10,30);
+        console.log(arrowResult);
+
+        const arrowFunc2 = (p1, p2) => (p1+p2);
+        console.log(arrowFunc2(100,200));
+
+        const arrowFunc3 = (p1, p2) =>{
+            console.log(p1+p2);
+        }
+        arrowFunc3(1000,2000);
+
+        // 함수생성
+        // 파라미터로 이름과 취미를 받아서 콘솔에 출력
+        // 홍길동은 독서를 좋아합니다.
+        function func2(name, hobby){
+            console.log(`${name}은 ${hobby}를 좋아합니다.`);
+        }
+        const arrFunc2 = (name, hobby) => {
+            console.log(`${name}은 ${hobby}를 좋아합니다.`);
+        }
+        const func3 = function(name, hobby){
+            console.log(`${name}은 ${hobby}를 좋아합니다.`);
+        }
+
+        let name = '홍길동';
+        let hobby = '독서';
+        func2(name, hobby);
+        arrFunc2(name, hobby);
+        func3(name,hobby);
+        
+    </script>
+</body>
+</html>

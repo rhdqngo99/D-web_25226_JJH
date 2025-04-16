@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input event</title>
+</head>
+<body>
+    <h1>input, textarea, select, html element 텍스트를 받아오기</h1>
+    <ul>
+        <li>
+            input tag는 value 속성에 값이 맵핑 되어 있어서 
+            value 속성으로 값을 가져올 수 있음
+        </li>
+        <li>
+            <h1></h1>  여는 태그 닫는 태그 사이에 값을 가져올 때 innerText
+        </li>
+        <li>
+            select => opion  / radio / checkbox 
+            value의 값을 태그 내 속성으로 부여해주어야 선택한 값을 가져올 수 있음.
+        </li>
+        <li>
+            value / innerText  가져오는 값은 모두 string 처리됨.
+        </li>
+        <li>
+            string 처리된 값을 숫자로 사용하기 위해서는 변환이 필요함
+        </li>
+    </ul>
+    <form action="">
+        <fieldset>
+            <legend>이벤트를 활용한 데이터 전송</legend>
+            id : <input type="text" id="userid"> <br>
+            pw : <input type="password" id="userpw"> <br>
+            birth : <input type="date" id="birth"><br>
+            pin : <input type="text" id="pin"><br>
+            <button type="button" onclick="clickEventInput()">전송</button>
+            <button type="button" onclick="makeList()">리스트만들기</button>
+        </fieldset>
+    </form>
+    <h1 id="info"></h1>
+    <ol id="ol"></ol>
+    <script>
+        let userid = document.getElementById('userid');
+        let userpw = document.getElementById('userpw');
+        let birth = document.getElementById('birth');
+        let pin = document.getElementById('pin');
+
+        function makeList(){
+            // 리스트 만들기 버튼을 클릭하면 ol => li로 내용을 추가
+            // String => 숫자로 변경
+            // Number() : 숫자로 변경될 수 있는 값은 변경 / 정수 + 실수
+            // parseInt() => 정수만 변경가능.
+
+            // 날짜 new Date() : 날짜 객체
+            console.log(userid.value);
+            
+            let printValue = `<li>${userid.value}</li>`;
+            printValue += `<li>${userpw.value}</li>`;
+            printValue += `<li>${new Date(birth.value)}</li>`;
+            printValue += `<li>${Number(pin.value)} / ${typeof Number(pin.value)}</li>`;
+            document.getElementById('ol').innerHTML = printValue;
+            
+            // input 값 없애기
+            userid.value='';
+            userpw.value='';
+            birth.value='';
+            pin.value = '';
+
+        }
+
+        function clickEventInput(){
+            // 버튼을 클릭하면 info 객체에 값을 추가
+            let userid = document.getElementById('userid').value;
+            let userpw = document.getElementById('userpw').value;
+            let birth = document.getElementById('birth').value;
+            let pin = document.getElementById('pin').value;
+            console.log(userid);
+            console.log(userpw);
+            console.log(birth);
+            console.log(pin);
+            let str = '';
+            str += `userid : ${userid} / `;
+            str += `userpw : ${userpw} / `;
+            str += `birth : ${birth} / `;
+            str += `pin : ${pin}`;
+            // info 객체 가져오기
+            document.getElementById('info').innerText = str;
+            // `userid : ${userid} / userpw : ${userpw} / birth : ${birth} / pin : ${pin}`;
+        }
+    </script>
+</body>
+</html>

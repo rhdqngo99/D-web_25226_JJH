@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <h1>구조에 따른 자바스크립트 객체 생성</h1>
+    <form action="">
+        이름: <input type="text" id="name"> <br>
+        주소: <input type="text" id="addr"> <br>
+        좋아하는 리스트<br>
+        리스트1: <input type="text" id="favor1"><br>
+        리스트2: <input type="text" id="favor2"><br>
+        리스트3: <input type="text" id="favor3"><br>
+        이메일: <input type="text" id="email"><br>
+        내가 가장 좋아하는 것 : <input type="text" id="wanna"><br>
+        <button type="button" onclick="getDatas()">객체로 전송</button>
+    </form>
+    <button type="button" id="printBtn">표로 출력</button>
+    <table id="dataTable" border="1"></table>
+
+    <script>
+        const dataObj = {
+            name:'',
+            addr:'',
+            favors:{
+                favor1:'',
+                favor2:'',
+                favor3:''
+            },
+            email:'',
+            wanna:''
+        };
+        console.log(dataObj);
+
+        document.getElementById('printBtn').addEventListener('click', ()=>{
+            let dataTable = document.getElementById('dataTable');
+
+            let str = `<tr><th>이름</th><td>${dataObj.name}</td></tr>`;
+            str += `<tr><th>주소</th><td>${dataObj.addr}</td></tr>`;
+            str += `<tr><th>좋아하는 리스트</th><td>`;
+                str+= `<ul>
+                    <li>${dataObj.favors.favor1}</li>
+                    <li>${dataObj.favors.favor2}</li>
+                    <li>${dataObj.favors.favor3}</li>
+                    </ul>`;
+                str+=`</td></tr>`;
+            str += `<tr><th>email</th><td>${dataObj.email}</td></tr>`;
+            str += `<tr><th>wanna</th><td>${dataObj.wanna}</td></tr>`;
+            dataTable.innerHTML = str;
+        })
+
+        function getDatas(){
+            // 내가 입력한 값으로 dataObj 채우기
+            // 객체명.key = value ;  해당 객체에 값 채우기
+            dataObj.name = document.getElementById('name').value;
+            dataObj.addr = document.getElementById('addr').value;
+            dataObj.favors.favor1 = document.getElementById('favor1').value;
+            dataObj.favors.favor2 = document.getElementById('favor2').value;
+            dataObj.favors.favor3 = document.getElementById('favor3').value;
+            dataObj.email = document.getElementById('email').value;
+            dataObj.wanna = document.getElementById('wanna').value;
+            console.log(dataObj);
+        }
+    </script>
+</body>
+</html>

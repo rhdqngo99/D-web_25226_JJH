@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+</head>
+<body>
+    이름 : <input type="text" id="name"><br>
+    주민번호 : <input type="text" id="rNum"><br>
+    <button type="button" id="btn">확인</button>
+    <h3 id="result"></h3>
+    <script>
+        let now = new Date();
+        // 주민등록번호
+        // 1900년대 19  910101-1234567  - 1 / 2
+        // 2000년대 20  000101-3456789  - 3 / 4
+        document.getElementById('btn').addEventListener('click',()=>{
+            let name = document.getElementById('name').value;
+            let rNum = document.getElementById('rNum').value;
+
+            // 생년월일, 나이, 성별
+            let birth = rNum.substring(0,rNum.indexOf("-"));
+            console.log(birth);
+            let getNum = rNum.charAt(rNum.indexOf("-")+1);
+            console.log(getNum);
+            //성별
+            let mw = (getNum == "1" || getNum == "3")?'남':'여';
+            console.log(mw);
+            //나이
+            // 오늘날짜 연도 - 태어난 연도
+            let todayYear = now.getFullYear();
+            let birthYear = Number(birth.substring(0,2));
+            let age = getNum<=2 ? todayYear - (1900+birthYear) 
+                : todayYear - (2000+birthYear);
+            console.log(age);
+
+            document.getElementById('result').innerText = 
+            `이름:${name}, 생년월일:${birth}, 나이:${age}, 성별:${mw}`;
+        })
+    </script>
+</body>
+</html>

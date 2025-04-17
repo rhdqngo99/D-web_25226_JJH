@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성적표</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>성적확인</legend>
+            이름: <input type="text" id="name"><br>
+            국어: <input type="text" id="kor"><br>
+            영어: <input type="text" id="eng"><br>
+            수학: <input type="text" id="math"><br>
+            <button type="button" onclick="clickEvent()">성적계산</button>
+        </fieldset>
+    </form>
+    <ul id="ul">
+
+    </ul>
+    <script>
+        //const name = document.getElementById('name');  //객체 상태
+        function clickEvent(){
+            // 객체.속성
+            // document.getElementById('name').value;
+            //Number():정수+실수 parseInt():정수만
+            let name = document.getElementById('name').value;
+            let kor = Number(document.getElementById('kor').value);
+            let eng = Number(document.getElementById('eng').value);
+            let math = Number(document.getElementById('math').value);
+
+            let sum = kor + eng + math;
+            //반올림 방법 Math.round() : 반올림 후 정수로 리턴
+            // 소수점 살리는 경우 .toFixed(2) : 소수 자리수 표현
+            let avg = (sum / 3).toFixed(2);
+
+            let ul = document.getElementById('ul');
+
+            let str = `<li>name : ${name}</li>`;
+            str += `<li>kor : ${kor}</li>`;
+            str += `<li>eng : ${eng}</li>`;
+            str += `<li>math : ${math}</li>`;
+            str += `<li>sum : ${sum}</li>`;
+            str += `<li>avg : ${avg}</li>`;
+
+            ul.innerHTML = str;
+        }
+    </script>
+</body>
+</html>

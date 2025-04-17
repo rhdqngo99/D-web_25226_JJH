@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math</title>
+</head>
+<body>
+    <h1>수학관련 함수</h1>
+    <ul>
+        <li>
+            java와 비슷한 함수 사용
+        </li>
+        <li>
+            Math.round(), Math.ceil(), Math.floor()
+            Math.random(), Math.max(), Math.min()...
+        </li>
+        <li>
+            Math.random() : 0(포함)~1(미포함) 사이의 난수를 리턴
+        </li>
+        <li>
+            시작값부터 개수만큼 난수 생성
+            Math.floor(Math.random()*개수)+시작값;
+        </li>
+    </ul>
+
+    <script>
+        //1~10의 난수 생성
+        let num = Math.floor(Math.random()*10)+1;
+        console.log(num);
+
+        // 범위의 난수 발생 공식
+        // 시작값이 1이 아닐경우 
+        // 파라미터 값이 min, max   10~20 까지의 난수 발생 20-10
+        let max = 20;
+        let min = 10;
+        let num2 = Math.floor(Math.random()*(max-min+1))+min;
+        console.log(num2);
+
+        function getRandom(min, max){
+            return Math.floor(Math.random()*(max-min+1))+min;
+        }
+
+        console.log(getRandom(100,200));
+
+    </script>
+</body>
+</html>

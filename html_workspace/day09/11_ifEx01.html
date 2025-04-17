@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>오늘은???</h1>
+    <button type="button" id="btn">Today</button>
+    <h3 id="result">
+        <!-- 오늘날짜와 요일 출력 -->
+        <!-- 2025. 04. 17. (목) -->
+    </h3>
+    <script>
+        document.getElementById('btn').addEventListener('click', ()=>{
+            let now = new Date();
+            let date = now.toLocaleDateString();
+            let day = now.getDay();
+            let week='';
+            switch(day){
+                case 0: week='일';  break;
+                case 1: week='월';  break;
+                case 2: week='화';  break;
+                case 3: week='수';  break;
+                case 4: week='목';  break;
+                case 5: week='금';  break;
+                case 6: week='토';  break;
+                default: break;
+            }
+            document.getElementById('result').innerText = 
+            `${date}(${week})`;
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exam</title>
+</head>
+<body>
+    <h1>
+        가위 바위 보를 10번하여 승률 출력
+    </h1>
+    <button type="button" id="btn">승률출력</button>
+    <h3>
+        10game 의 승률은 <span id="result"></span>% 입니다.
+    </h3>
+    <script>
+        // 가위 바위 보 게임 
+        // com = random / player = random
+        // 1=가위, 2=바위, 3=보
+        // 승률계산 (승 / (10 - 무))*100 소수점 2자리까지 표현
+        // 콘솔에 com / player
+
+        document.getElementById('btn').addEventListener('click',()=>{
+            let win = 0; //win count
+            let draw = 0;
+            let lose = 0;
+            const play = ['가위','바위','보'];
+
+            for(let i=0; i<10; i++){
+                let player = ran();
+                let com = ran();
+                let result = getWinner(player, com);
+                console.log(`${play[player-1]} / ${play[com-1]}  => ${result}`);
+
+                if(result == 'win'){
+                    win++;
+                }else if(result == 'draw'){
+                    draw++;
+                }else{
+                    lose++;
+                }
+            }
+            console.log(`승:${win} / 무:${draw} / 패:${lose}`);
+            document.getElementById('result').innerText = 
+            ((win/(10-draw))*100).toFixed(2);
+        })
+
+        // 랜덤 값을 리턴하는 함수
+        function ran(){
+            return Math.floor(Math.random()*3)+1;
+        }
+
+        // 승(win), 무(draw), 패(lose) 리턴하는 함수
+        function getWinner(userChoice, comChoice){
+            if(userChoice == comChoice){
+                return 'draw';
+            }else if(
+                (userChoice == 1 && comChoice == 3) || 
+                (userChoice == 2 && comChoice == 1) ||
+                (userChoice == 3 && comChoice == 2 )
+            ){
+                return 'win';
+            }else{
+                return 'lose';
+            }
+        }
+    </script>
+</body>
+</html>

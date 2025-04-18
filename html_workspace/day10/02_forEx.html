@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        table td{
+            width: 100px;
+            height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- 구구단 -->
+    <input type="text" id="dan">단 구구단
+    <button type="button" id="btn">출력</button>
+    <h3 id="h3"></h3>
+
+    <hr>
+
+    <button type="button" id="guguBtn">구구단 전체 출력</button>
+    <div id="gugu">
+
+    </div>
+
+    <script>
+        document.getElementById('btn').addEventListener('click',()=>{
+            let dan = document.getElementById('dan').value;
+            let incre = 1;
+            let str = '';
+            while(incre<10){
+                str += `${dan} * ${incre} = ${dan*incre}<br>`;
+                incre++;
+            }
+            document.getElementById('h3').innerHTML = str;
+        });
+
+        function gugu(){
+            let gugu = document.getElementById('gugu');
+            let incre = 1; // 증가값
+            let str = '<table>';
+                while(incre < 10){
+                    let dan = 2;
+                    str+= '<tr>';
+                        while(dan < 10){
+                            str += `<td>${dan}*${incre}=${dan*incre}</td>`;
+                            dan++;
+                        }
+                    incre++;
+                    str+= '</tr>';
+                }
+            str += '</table>';
+            gugu.innerHTML = str;
+        }
+
+        //document.getElementById('guguBtn').addEventListener('click', gugu);
+        
+        document.getElementById('guguBtn').addEventListener('click', ()=>{
+            gugu();
+        });
+    </script>
+</body>
+</html>

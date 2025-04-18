@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        데이터 구조화
+    </h1>
+    <ul>
+        <li>
+            많은 양의 데이터가 실시간으로 전달되어야 할 때 가장 효율적으로
+            데이터를 보내는 방법 JSON
+        </li>
+        <li>
+            데이터 구조화 => 구조화된 텍스트 => JSON
+        </li>
+        <li>
+            JSON (JavaScript Object Notation)
+            : javascript 객체를 구조화된 데이터로 표현하기 위한 문자기반 표준 포멧
+        </li>
+        <li>
+            웹 서버 (<->) 화면 데이터 전송 할 때 일반적으로 사용
+        </li>
+        <li>
+            자바스크립의 객체 형태를 띄기 때문에 구조 파악이 쉽고, 제작도 쉽다.
+        </li>
+        <li>
+            웹 분야에서 화면은 자바스크립트가 모든 프론트에 호환된다는 점을 활용
+            데이터 수집, 출력 용도로 거의 모든 플랫폼에서 사용되고 있음.
+        </li>
+    </ul>
+    <script>
+        const top = {
+            '거래상위':[
+                {
+                    name: '나우IB',
+                    price: 1680,
+                    updown: 356,
+                    ratio: 26.89
+                },
+                {
+                    name: '인성정보',
+                    price: 2535,
+                    updown: 490,
+                    ratio: 23.96
+                },
+                {
+                    name: 'KODEX 200선물인버스',
+                    price: 2300,
+                    updown: -30,
+                    ratio: -1.29
+                },{},{},{}
+            ],
+            '상승':[
+                {
+                    name: '경남스틸',
+                    price: 8710,
+                    updown: 2010,
+                    ratio: 30.00
+                }, {},{},{}
+            ],
+            '하락':[
+                {
+                    name: '브릿지바이오테라퓨틱스',
+                    price: 2160,
+                    updown: -920,
+                    ratio: -29.87
+                },{},{},{}
+            ],
+            '시가총액 상위':[
+                {
+                    name: '삼성전자',
+                    price: 55300,
+                    updown: 200,
+                    ratio: 0.36
+                },{},{},{}
+            ]
+        }
+
+        //환전고시환율 / 금시세
+        const exs = {
+            exchange:[
+                {
+                    name:'미국USD',
+                    price: 1423.00,
+                    updown:3.50
+                },
+                {
+                    name:'일본JPY(100엔)',
+                    price: 999.82,
+                    updown:2.95
+                },
+                {
+                    name:'유럽연합EUR',
+                    price: 1617.88,
+                    updown:3.77
+                },
+                {
+                    name:'중국CNY',
+                    price: 194.87,
+                    updown:0.43
+                }
+            ],
+            gold:[
+                {
+                    name:'국제금(04.17)',
+                    price: 3328.40,
+                    updown: -18.00
+                },
+                {
+                    name:'국내금(04.18)',
+                    price: 152232.96,
+                    updown: 1029.50
+                }
+            ]
+        }
+    </script>
+</body>
+</html>

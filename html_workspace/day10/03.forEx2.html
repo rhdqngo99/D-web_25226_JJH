@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>향상된 for</title>
+</head>
+<body>
+    <h1>향상된 for</h1>
+    <ul>
+        <li>
+            for of / for in
+        </li>
+        <li>
+            for of : 배열안의 내용을 탐색할 때 사용 []  => java 에서의 향상된 for 동일
+            for(let value of array){
+                code;
+            }
+        </li>
+        <li>
+            for in : 객체안의 내용을 탐색할 대 사용 {}
+            for(let key in Object){
+                code;
+            }
+        </li>
+    </ul>
+    <script>
+        const people = ['kim', 'lee', 'park', 'hong'];
+        console.log(people);
+        
+        for(let i=0; i<people.length; i++){
+            console.log(people[i]);
+        }
+        console.log("----for of----");
+        for(let p of people){
+            console.log(p);
+        }
+
+        const kim = {
+            name:'kim',
+            age:20,
+            email:'123@123.com'
+        }
+        console.log("----for in----");
+        for(let key in kim){
+            console.log(key);  //key
+            console.log(kim[key]); //value
+        }
+
+        const member = {
+            name:'park',
+            age:35,
+            favors:['BaseBall','Game','Movie']
+        }
+        console.log("---- exam ----");
+
+        for(let key in member){
+            console.log(key);
+            if(key == 'favors'){
+                for(let m of member[key]){
+                    console.log(m);
+                }
+            }else{
+                console.log(member[key]);
+            }
+        }
+
+    </script>
+</body>
+</html>

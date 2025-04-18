@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제</title>
+</head>
+<body>
+    <h1>구조에 따라 자바스크립트 객체를 만들어 보자</h1>
+    <form action="">
+        가수명 : <input type="text" id="name"> <br>
+        나이 : <input type="text" id="age"> <br>
+        플레이리스트 <br>
+        리스트1 : <input type="text" id="list1"><br>
+        리스트2 : <input type="text" id="list2"><br>
+        리스트3 : <input type="text" id="list3"><br>
+        <button type="button" id="btn">객체로 전송</button>
+    </form>
+    <button id="result">table 구성</button>
+    <table border="1" id="table"></table>
+
+
+    <script>
+        const musician = {
+            name:'',
+            age: '',
+            playList:{
+                list1:'',
+                list2:'',
+                list3:''
+            }
+        }
+        document.getElementById('btn').addEventListener('click',()=>{
+            
+            musician.name = document.getElementById('name').value;
+            musician.age = document.getElementById('age').value;
+            musician.playList.list1 = document.getElementById('list1').value;
+            musician.playList.list2 = document.getElementById('list2').value;
+            musician.playList.list3 = document.getElementById('list3').value;
+            console.log(musician);
+        });
+        document.getElementById('result').addEventListener('click', ()=>{
+            let table = document.getElementById('table');
+            console.log(table);
+            let str = `<tr><th>이름</th><td>${musician.name}</td></tr>`;
+            str += `<tr><th>나이</th><td>${musician.age}</td></tr>`;
+            str += `<tr><th>플레이리스트</th><td>
+                <ul>
+                    <li>${musician.playList.list1}</li>
+                    <li>${musician.playList.list2}</li>
+                    <li>${musician.playList.list3}</li>
+                </ul>
+                </td></tr>`;
+            table.innerHTML = str;
+            
+        })
+
+    </script>
+</body>
+</html>

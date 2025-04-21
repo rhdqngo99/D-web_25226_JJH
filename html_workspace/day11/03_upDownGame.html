@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UpDownGame</title>
+</head>
+<body>
+    <!-- 1~99까지의 숫자 중 하나를 랜덤으로 선택하여 
+        해당 숫자를 맞추는 게임 -->
+    <h1>
+        <button type="button" id="random">랜덤 숫자 생성 버튼</button>
+        <button type="button" id="re">다시시도</button>
+    </h1>
+    <h3 id="printMsg"></h3>
+    <h1>
+        <input type="number" id="myNum" min="1" max="99">
+        <button type="button" id="compareNum">제출!</button>
+    </h1>
+    <h3 id="result"></h3>
+    <script>
+        // 1회  내숫자  up/down
+        let computerNum = 0;
+        let count = 0;
+        let str='';
+        const printMsg = document.getElementById('printMsg');
+        const result = document.getElementById('result');
+        // str += "가"; // 연결연산자
+        // console.log(str);
+        // str -= "가"; // 숫자가 아니니 뺄수 없다. NaN
+        // console.log(str);
+
+
+        document.getElementById('re').addEventListener('click',()=>{
+            window.location.reload();  //새로고침    window. 생략가능
+        });
+
+        document.getElementById('compareNum').addEventListener('click',()=>{
+            
+            if(computerNum == 0){
+                result.innerText = 
+                `랜덤수가 생성되지 않았습니다.`;
+            }else{
+                let myNum = Number(document.getElementById('myNum').value);
+                count++;
+                if(myNum > 0 && myNum < 100){
+                    if(myNum == computerNum){
+                        str += `시도횟수:${count}, 정답!!. ${computerNum}였습니다. \n`;
+                    }else if(computerNum > myNum){
+                        str += `시도횟수:${count},  ${myNum}  => UP!! \n`;
+                    }else{
+                        str += `시도횟수:${count},  ${myNum}  => DOWN!! \n`;
+                    }
+                }else{
+                    str += `1~99까지의 숫자만 입력가능합니다.\n`;
+                }
+                result.innerText = str;
+            }
+            // 입력값 초기화
+            document.getElementById('myNum').value = '';
+        });
+        document.getElementById('random').addEventListener('click',()=>{
+            computerNum = Math.floor(Math.random()*99)+1;
+            printMsg.innerText = 
+            `컴퓨터가 랜덤수를 생성했습니다.(1~99)`;
+            
+            console.log(computerNum);
+        });
+    </script>
+</body>
+</html>

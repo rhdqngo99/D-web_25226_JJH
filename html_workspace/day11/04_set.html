@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set</title>
+</head>
+<body>
+    <h1>
+        자바스크립트의 데이터 타입의 확장 개념
+        집합 데이터를 다룰 수 있는 객체
+    </h1>
+    <ul>
+        <li>
+            set 중복 불가능 : 중복 데이터가 들어오면 체크 후 하나만 남겨
+        </li>
+        <li>
+            set() : 파라미터로 주로 배열을 사용, index, value의 값을 활용하여 집합 데이터를 생성
+        </li>
+        <li>
+            new Set()  / new Set(array) : set 객체를 생성, 초기화
+        </li>
+        <li>
+            set.add(value) : 데이터 추가
+        </li>
+        <li>
+            set.delete(value) : 데이터 삭제
+        </li>
+        <li>
+            set.has(value) : 값의 존재 여부를 체크 true / false
+        </li>
+        <li>
+            set.forEach(callback function) : set 순환
+        </li>
+        <li>
+            set.entries(), set.keys(), set.value() 
+            : 리턴타입 setIterator 형식임.
+        </li>
+        <li>
+            set.size : set의 개수 리턴
+        </li>
+        <li>
+            set.clear() : set 비우기
+        </li>
+    </ul>
+    <script>
+        const treeSet = new Set(['html','css','js']);
+        console.log(treeSet);
+        treeSet.add('react');
+        console.log(treeSet);
+        console.log(treeSet.size);
+        treeSet.delete('html');
+        console.log(treeSet);
+        console.log(treeSet.has('css'));
+        treeSet.add('css'); // 중복값 추가 안됨.
+        console.log(treeSet);
+        // value, index, self
+        treeSet.forEach(function(v, i, s){
+            console.log(v, i, s);
+        });
+
+        console.log("--------------");
+        // entries(), keys(), values()
+        console.log(treeSet.entries());
+        console.log(treeSet.keys());
+        console.log(treeSet.values());
+
+        treeSet.keys().forEach(function(v){
+            console.log(v);
+        });
+        treeSet.values().forEach(function(v){
+            console.log(v);
+        });
+
+        for(let iter of treeSet.keys()){
+            console.log(iter);
+        }
+
+        treeSet.clear();
+        console.log(treeSet);
+    </script>
+</body>
+</html>

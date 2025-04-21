@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        set을 생성하고, 1~10까지 랜덤수를 5개 채워서 출력 (중복X)
+    </h1>
+    <script>
+
+    const testSet = new Set();
+
+    while(testSet.size < 5){
+        let num = Math.floor(Math.random()*10)+1;
+        console.log(num);
+        testSet.add(num);
+    }
+    console.log(testSet);
+
+    testSet.forEach(v => console.log(v));
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>set을 이용한 로또 만들기</h1>
+    <!-- 
+        1~45까지 랜덤수를 중복되지 않게 6자리 추출 => 출력
+        set 을 이용하여 중복제거
+    -->
+    <button type="button" id="makeRandom">랜덤번호 6자리 생성(출력)</button>
+    <h1 id="printNum">로또번호 출력</h1>
+    <button type="button" id="makeRandom2">당첨번호 7자리 생성(출력)</button>
+    <h1 id="printNum2">로또번호 출력</h1>
+    <button type="button" id="ranking">결과확인</button>
+    <h1 id="printResult">당첨여부 출력</h1>
+
+    <script>
+        function generateLottoNumbers(count) {
+            const lottoSet = new Set();
+            while (lottoSet.size < count) {
+                const num = Math.floor(Math.random() * 45) + 1;
+                lottoSet.add(num);
+            }
+            return Array.from(lottoSet).sort((a, b) => a - b);
+        }
+
+        let myNumbers = [];
+        let winningNumbers = [];
+
+        document.getElementById("makeRandom").addEventListener("click", function () {
+            myNumbers = generateLottoNumbers(6);
+            document.getElementById("printNum").textContent = "로또 번호: " + myNumbers.join(", ");
+        }); 
+
+        document.getElementById("makeRandom2").addEventListener("click", function () {
+            winningNumbers = generateLottoNumbers(7);
+            document.getElementById("printNum2").textContent = 
+                "당첨 번호: " + winningNumbers.slice(0, 6).join(", ") + " | 보너스: " + winningNumbers[6];
+        });
+        document.getElementById("ranking").addEventListener("click", function () {
+        if (myNumbers.length === 0 || winningNumbers.length === 0) {
+            alert("먼저 번호를 생성해주세요.");
+            return;
+        }
+
+        const mainWinning = winningNumbers.slice(0, 6);
+        const bonusNumber = winningNumbers[6];
+
+        const matched = myNumbers.filter(num => mainWinning.includes(num));
+        const hasBonus = myNumbers.includes(bonusNumber);
+
+        let result = "";
+        switch (matched.length) {
+            case 6:
+                result = "1등 당첨!";
+                break;
+            case 5:
+                result = hasBonus ? "2등 당첨!(보너스 포함)" : "3등 당첨!";
+                break;
+            case 4:
+                result = "4등 당첨";
+                break;
+            case 3:
+                result = "5등 당첨";
+                break;
+            default:
+                result = "꽝";
+        }
+
+        document.getElementById("printResult").textContent = 
+            `맞은 개수: ${matched.length}개 (${matched.join(", ")}) → 결과: ${result}`;
+    });
+        
+    </script>
+</body>
+</html>

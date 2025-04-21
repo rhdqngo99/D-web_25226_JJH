@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        input 2개 생성 => 과목, 점수
+        map에 추가
+        출력 => map 출력 ul=>li 형태로 출력  html:89
+        결과 => 점수 합계, 평균, 합격여부(60이상이면 pass) => h3
+    -->
+        <form action="">
+            과목 : <input type="text" id="subject"><br>
+            점수 : <input type="text" id="score"><br>
+            <button type="button" id="add">추가</button>
+            <button type="button" id="printBtn">출력</button>
+            <button type="button" id="totBtn">결과</button>
+        </form>
+        <ul id="ul">
+
+        </ul>
+        <h3 id="result">
+
+        </h3>
+        <script>
+            const myMap = new Map();
+
+            document.getElementById('totBtn').addEventListener('click', ()=>{
+                let sum = 0;
+                myMap.forEach(function(v){
+                    sum += v;
+                });
+                console.log(sum);
+                let avg = sum / myMap.size;
+                let pass = avg >= 60 ? 'pass' : 'fail';
+
+                document.getElementById('result').innerText = 
+                `sum : ${sum} / avg : ${avg.toFixed(2)} / pass : ${pass}`;
+            })
+
+            document.getElementById('printBtn').addEventListener('click', ()=>{
+                let str='';
+                myMap.forEach(function(v, k){
+                    str += `<li>${k} : ${v}</li>`;
+                });
+                document.getElementById('ul').innerHTML = str;
+            });
+
+            document.getElementById('add').addEventListener('click',()=>{
+                let subject = document.getElementById('subject').value;
+                let score = Number(document.getElementById('score').value);
+
+                if(isNaN(score) || score < 0 || score > 100){
+                    alert('0~100사이의 값을 입력하세요.');
+                    return;
+                }
+
+                myMap.set(subject, score);
+                console.log(myMap);
+                document.getElementById('subject').value = '';
+                document.getElementById('score').value = '';
+
+                let str='';
+                myMap.forEach(function(v, k){
+                    str += `<li>${k} : ${v}</li>`;
+                });
+                document.getElementById('ul').innerHTML = str;
+
+            });
+
+        </script>
+</body>
+</html>

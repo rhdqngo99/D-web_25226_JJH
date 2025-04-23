@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <h1>
+        JSON(JavaScript Object Notation) : 자바 스크립트 객체 표기법
+    </h1>
+    <ul>
+        <li>
+            데이터 요청 및 응답처리에 필요한 데이터의 표준 형식을 제공하는 타입
+        </li>
+        <li>
+            백엔드(서버)언어 종류에 상관없이 데이터를 송수신 단말형식으로 통일
+        </li>
+        <li>
+            서버측에서는 무조건 String 처리 - 화면(javaScript)에서는 Object로 처리
+        </li>
+        <li>
+            서버로 보낼때 > Object > string 
+            => JSON.stringify(jsObject);
+        </li>
+        <li>
+            서버로 부터 화면에서 받을 때 > string > Object 
+            => JSON.parse(Stringdata);
+        </li>
+    </ul>
+    <script>
+        const cake = {
+            id:'1234',
+            type: 'donut',
+            name: 'donut',
+            image:{
+                url:'../image/001.jpg',
+                width:'200',
+                height:'50'
+            },
+            thumbnail:{
+                url:'../image/th/001.jpg',
+                width:'50',
+                height:'5'
+            }
+        }
+        console.log(cake);
+        //cake Object => string 변환
+        let cakeStr = JSON.stringify(cake);
+        console.log(cakeStr);
+        /*
+        {"id":"1234","type":"donut","name":"donut",
+        "image":{"url":"../image/001.jpg","width":"200","height":"50"},
+        "thumbnail":{"url":"../image/th/001.jpg","width":"50","height":"5"}}
+        */
+        // 콘솔에 key:value 형태로 출력해보기
+        let cakeObj = JSON.parse(cakeStr);
+        console.log(cakeObj);
+
+        // for in => Object
+        // for of => array
+        for(const key in cakeObj){
+            if(key == 'image' || key=='thumbnail'){ // value => Object
+                for(const k in cakeObj[key]){
+                    console.log(k+":"+cakeObj[key][k]);
+                }
+            }else{
+                console.log(key+":"+cakeObj[key]);
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // class User 생성
+        // 생성자로 name, birth를 받아서 멤버변수로 저장
+        // get age() : 나이를 리턴  오늘날짜년도 - 생년월일 년도
+        // status() 성인인지 미성년자인지 리턴 (콘솔로 리턴) - 메서드
+
+        // let today = new Date();
+        // let birth = new Date('2001-01-01');
+        // console.log(today.getFullYear(), birth.getFullYear());
+
+        class User{
+            constructor(name, birth){
+                this.name = name;
+                this.birth = birth;
+            }
+            get age(){
+                let birthday = new Date(this.birth);
+                let todayYear = new Date().getFullYear();
+                return todayYear - birthday.getFullYear();
+            }
+            status(){
+                if(this.age < 20){
+                    console.log(`${this.name}(${this.age})은 미성년자 입니다.`);
+                }else{
+                    console.log(`${this.name}(${this.age})은 성인입니다.`);
+                }
+            }
+        }
+
+        let hong = new User('hong', '2001-01-01');
+        let kim = new User('kim', '2017-01-01');
+        // get, set은 () 인지 못함.
+        console.log(hong.age);
+        hong.status();
+        kim.status();
+    </script>
+</body>
+</html>

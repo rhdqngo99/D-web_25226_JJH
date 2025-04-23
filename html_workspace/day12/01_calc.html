@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+    <style>
+        .container{
+            width: 300px;
+            margin: 50px auto;
+        }
+        #printResult{
+            text-align: right;
+            padding: 15px;
+            background-color: #f6dca8;
+            border: 1px solid rgb(203, 155, 72);
+            border-radius: 15px;
+            font-size: 25px;
+            height: 40px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        .container>.area{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .container>.area>button{
+            padding: 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 15px;
+            background-color: #edb0b0;
+            box-shadow: 0 4px 4px #f4e2e2;
+        }
+        .container>.area>.c{
+            grid-column: span 4;
+            background-color: #f86b6b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="printResult"></h1>
+        <div class="area">
+            <button type="button" value="7">7</button>
+            <button type="button" value="8">8</button>
+            <button type="button" value="9">9</button>
+            <button type="button" value="+">+</button>
+            
+            <button type="button" value="4">4</button>
+            <button type="button" value="5">5</button>
+            <button type="button" value="6">6</button>
+            <button type="button" value="-">-</button>
+            
+            <button type="button" value="1">1</button>
+            <button type="button" value="2">2</button>
+            <button type="button" value="3">3</button>
+            <button type="button" value="*">*</button>
+            
+            <button type="button" value=".">.</button>
+            <button type="button" value="0">0</button>
+            <button type="button" value="=">=</button>
+            <button type="button" value="/">/</button>
+
+            <button type="button" value="c" class="c">C</button>
+        </div>
+    </div>
+    <script>
+        //getElementById
+        //getElementsByClassName  => querySelector
+        // document.getElementsByClassName('container')[0].addEventListener('click',(e)=>{
+        //     console.log(e.target.value);
+        // })
+
+        //출력 라인 객체 선언
+        const printResult = document.getElementById('printResult');
+        let printVal ='';  // 출력문구 적을 변수
+        let print='';
+
+        document.querySelector('.container').addEventListener('click',(e)=>{
+            console.log(e.target.value);
+            let btnValue = e.target.value;  //버튼에 입력되는 값 처리
+
+            // 버튼의 값이 숫자인지 아닌지 체크
+            if(!isNaN(btnValue)){  //숫자라면... 
+                print='';
+                printVal += btnValue;
+                print = btnValue;
+            }else{ //숫자가 아니라면...
+                if(btnValue != undefined){  // undefined 아니라면...  (+-*/...)
+                    switch(btnValue){
+                        case 'c' : 
+                        //초기화
+                        print='';
+                        printVal=''; // 결과 변수 초기화
+                        printResult.innerText=''; // 화면에 표현된 값도 초기화
+                        break;
+                        case '.' : 
+                        // 기존 값에 붙이기
+                            if(!printVal){
+                                printVal='';
+                            }else if(printVal == btnValue){
+                                printVal='';
+                            }else{
+                                printVal += btnValue; 
+                            }
+                            console.log(printVal);
+                        break;
+                        // 사칙연산인 경우 공백을 포함하여 숫자에 누적
+                        default : 
+                        let result = 0;
+                        if(btnValue == '='){
+                            // 계산하기
+                            console.log(printVal);
+                            result = extractValue(printVal);
+                            printVal =result;
+                            print = result; //결과를 값으로 반영
+                            btnValue = '';
+                        }else{
+                            // 사칙연산
+                            //공백만들어 붙이기
+                            if(!printVal){
+                                printVal='';
+                            }else if(printVal == btnValue){
+                                printVal='';
+                            }else{
+                                if(printVal.slice(-1)!=" "){
+                                    printVal += ` ${btnValue} `; // 양옆에 공백
+                                }
+                            }
+                            // printVal += ` ${btnValue} `; // 양옆에 공백
+                        }
+                    }
+                }
+            }
+            printResult.innerText = print;
+        })
+
+        function operation(f, o, l){
+            // f, l은 숫자 , o는 연산자
+            let result =0;
+            switch(o){
+                case '+': result = f + l; break;
+                case '-': result = f - l; break;
+                case '*': result = f * l; break;
+                case '/': result = f / l; break;
+                default: break;
+            }
+            console.log(f, l, result);
+            return result.toFixed(2);
+        }
+        function extractValue(strVal){
+            // substring
+            // 123 + 456
+            let firstNum = strVal.substring(0, strVal.indexOf(" "));
+            let op = strVal.substr(strVal.indexOf(" ")+1, 1); 
+            let lastNum = strVal.substring(strVal.lastIndexOf(" ")+1);
+
+            console.log(firstNum, op, lastNum);
+            return operation(Number(firstNum), op, Number(lastNum));
+        }
+    </script>
+</body>
+</html>
+

@@ -14,11 +14,81 @@
     <button type="button" id="makeRandom">랜덤번호 6자리 생성(출력)</button>
     <h1 id="printNum">로또번호 출력</h1>
     <button type="button" id="makeRandom2">당첨번호 7자리 생성(출력)</button>
-    <h1 id="printNum2">로또번호 출력</h1>
+    <h1 id="printNum2">당첨번호 출력</h1>
     <button type="button" id="ranking">결과확인</button>
     <h1 id="printResult">당첨여부 출력</h1>
 
     <script>
+        // 1~45까지 6자리를 선택   : user
+        // 1~45까지 6자리 + 보너스번호  : 당첨  
+        const lottoSet = new Set(); //사용자 로또번호
+        const rNumSet = new Set(); // 당첨번호
+        const lottoArr = []; // 배열로 변환 용 6자리
+        const rNumArr = []; // 7자리
+        let bonus = 0;//보너스 번호 용도
+        document.getElementById('makeRandom').addEventListener('click', ()=>{
+            lottoSet.clear();
+            //array 전체 비우기 함수가 없음.
+            // splice(index, count) : index 부터 count 개만큼 삭제
+            lottoArr.splice(0,6);
+            randomNum(lottoSet, lottoArr, 6);
+            console.log(lottoSet, lottoArr);
+            document.getElementById('printNum').innerText = lottoArr;
+        })
+        document.getElementById('makeRandom2').addEventListener('click', ()=>{
+            rNumSet.clear();
+            rNumArr.splice(0,7);
+            randomNum(rNumSet, rNumArr, 7);
+            console.log(rNumSet, rNumArr);
+            bonus = rNumArr.pop(); //마지막 요소를 삭제 리턴
+            document.getElementById('printNum2').innerText = `${rNumArr} [${bonus}]`;
+        })
+        document.getElementById('ranking').addEventListener('click', ranking);
+        
+        function ranking(){
+            let cnt = 0;
+            lottoArr.forEach(a=>{
+                rNumArr.forEach(b=>{
+                    if(a==b){
+                        cnt++;
+                    }
+                })
+            })
+            console.log(cnt);
+
+            let print='';
+            switch(cnt){
+                case 6: print='축~ 1등!!'; break;
+                case 5: 
+                    //includes() : 보너스가 있는지 체크
+                    lottoArr.includes(bonus) ? print='축~ 2등!!' : print='축~ 3등!!';
+                break;
+                case 4: print='축~ 4등!!'; break;
+                case 3: print='축~ 5등!!'; break;
+                default: print ="꽝~!!"; break;
+            }
+
+            document.getElementById('printResult').innerText = print;
+        }
+
+        function randomNum (set, arr, num) {
+            while(set.size < num){
+                let rNum = Math.floor(Math.random()*10)+1;
+                set.add(rNum);
+            };
+            /*
+                set -> 배열을 복사하는 방법
+                1. Array.from(set)  //set을 arr로 복사  얕은 복사(주소값만 복사)
+                2. arr = [...set] // spread 연산자 얕은 복사
+                3. 직접 for문을 써서 push 하는 방법 깊은 복사
+            */
+            // for(let num of set){
+            //     arr.push(num);
+            // }
+            set.forEach(e => arr.push(e));
+        }
+
+    /*
         function generateLottoNumbers(count) {
             const lottoSet = new Set();
             while (lottoSet.size < count) {
@@ -74,7 +144,7 @@
         document.getElementById("printResult").textContent = 
             `맞은 개수: ${matched.length}개 (${matched.join(", ")}) → 결과: ${result}`;
     });
-        
+      */
     </script>
 </body>
 </html>

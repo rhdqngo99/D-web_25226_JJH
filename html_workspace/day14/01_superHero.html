@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Lilita+One&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body{
+            text-align: center;
+        }
+        header{
+            margin: 50px auto;
+        }
+        header>h1{
+            font-family: "Lilita One", sans-serif;
+        }
+        section{
+            display: flex;
+            justify-content: center;
+        }
+        section>div{
+            margin: 0 30px;
+            text-align: left;
+        }
+        section>div>div:first-child{
+            font-size: 20px;
+            font-family: "Lilita One", sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header id="header"></header>
+    <section id="section"></section>
+
+    <script>
+        const header = document.getElementById('header');
+        const section = document.getElementById('section');
+        
+        superHero().then(result => printData(result));
+
+        async function superHero() {
+            try {
+                const resp = await fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json');
+                const result = await resp.json();
+                return result;
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        function printData(obj){
+            console.log(obj);
+            //header 넣을 객체 생성 h1 h3
+            let str='';
+            str+=`<h1>${obj.squadName}</h1>`;
+            str+=`<h3>HomeTown : ${obj.homeTown} // Formed : ${obj.formed}</h3>`;
+            header.innerHTML = str;
+
+            //section 객체 생성
+            for(let i=0; i<obj.members.length; i++){
+                let member = obj.members[i];
+                console.log(member);
+                let memberStr = `<div>`;
+                    memberStr += `<div>${member.name}</div>`;
+                    memberStr += `<div>SecretIdentity : ${member.secretIdentity}</div>`;
+                    memberStr += `<div>Age : ${member.age}</div>`;
+                    memberStr += `<div>SuperPowers : <ul id="power${i}"></ul>`;
+                    // memberStr += `<ul>`;
+                    //     for(const p of member.powers){
+                    //         memberStr += `<li>${p}</li>`;
+                    //     }
+                    // memberStr += `</ul>`;
+                    memberStr += `</div></div>`;
+                section.innerHTML += memberStr;
+                for(const p of member.powers){
+                    document.getElementById(`power${i}`).innerHTML +=
+                    `<li>${p}</li>`;
+                }
+
+            }
+
+        }
+
+
+        
+        /*
+        {        
+        "squadName" : "Super Hero Squad",
+        "homeTown" : "Metro City",
+        "formed" : 2016,
+        "secretBase" : "Super tower",
+        "active" : true,
+        "members" : [
+            {
+            "name" : "Molecule Man",
+            "age" : 29,
+            "secretIdentity" : "Dan Jukes",
+            "powers" : [
+                "Radiation resistance",
+                "Turning tiny",
+                "Radiation blast"
+            ]
+            },
+            {
+            "name" : "Madame Uppercut",
+            "age" : 39,
+            "secretIdentity" : "Jane Wilson",
+            "powers" : [
+                "Million tonne punch",
+                "Damage resistance",
+                "Superhuman reflexes"
+            ]
+            },
+            {
+            "name" : "Eternal Flame",
+            "age" : 1000000,
+            "secretIdentity" : "Unknown",
+            "powers" : [
+                "Immortality",
+                "Heat Immunity",
+                "Inferno",
+                "Teleportation",
+                "Interdimensional travel"
+                ]
+            }
+        ]
+        }    
+        */
+    </script>
+</body>
+</html>

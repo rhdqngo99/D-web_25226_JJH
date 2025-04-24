@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wapper{
+            width: 600px;
+            margin: 0 auto;
+        }
+        .wapper>h1{
+            text-align: center;
+        }
+        .wapper>form{
+            background-color: rgb(181, 241, 221);
+            text-align: center;
+            padding: 30px 40px;
+        }
+        .wapper>form>input{
+            border: none;
+            outline: none;
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+        }
+        .wapper>form>button{
+            padding: 9px;
+            border: none;
+            background-color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .wapper ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wapper ul li{
+            padding: 12px 20px;
+            background-color: antiquewhite;
+            position: relative;
+        }
+        .wapper ul li:nth-child(odd){
+            background-color: rgb(215, 227, 250);
+        }
+        
+        .close{
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 12px 20px;
+            padding: 0 10px; 
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wapper">
+        <h1>여행 준비물 점검 목록</h1>
+        <form action="">
+            <input type="text" id="item" autofocus="true">
+            <button type="button" class="a b list c" id="btn" data-no="a">추가</button>
+        </form>
+        <div>
+            <ul id="itemList"></ul>
+            
+        </div>
+    </div>
+    <script>
+        const itemList = [];
+
+        document.getElementById('btn').addEventListener('click',()=>{
+            let item = document.getElementById('item');
+            if(item.value !== ''){
+                itemList.push(item.value);
+                item.value = ''; //추가후 input value 비우기
+                item.focus(); //커서 보내기
+                //배열을 화면에 뿌리기
+                printData();
+            }else{
+                alert('아이템 값이 없습니다.');
+            }
+            console.log(itemList);
+        });
+
+        function printData(){
+            let list = '';
+            for(let i=0; i<itemList.length; i++){
+                list+=`<li>${itemList[i]} <span class="close" id="${i}">❌</span></li>`;
+            }
+            document.getElementById('itemList').innerHTML = list;
+        }
+
+        document.addEventListener('click',(e)=>{
+            //class : 배열로 리턴 classList
+            // target의 객체에 클래스에 a라는 값이 포함되어 있는지를 체크
+            //e.target.classList.contains('a')
+            // console.log(e.target.classList.contains('a')); //class로 구분시
+            // console.log(e.target.dataset.no=='a'); // data- 변수로 값을 구분시
+            
+            if(e.target.classList.contains('close')){
+                console.log(e.target);
+                // console.log("삭제버튼 클릭");
+                // 삭제
+                let i = e.target.id;
+                console.log(i);
+                // 배열에서 해당번지 지우기  
+                // splice(번지, 개수);
+                itemList.splice(i,1);
+            }
+            // 삭제 후 데이터 뿌리기
+            printData();
+
+        })
+    </script>
+</body>
+</html>

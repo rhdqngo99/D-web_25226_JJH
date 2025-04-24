@@ -5,21 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    ul{
+        list-style: none;
+        padding: 0;
+    }
+</style>
 <body>
     <button type="button" id="btn">데이터 가져오기</button>
     <ul id="ul">
 
     </ul>
     <script>
-        // https://jsonplaceholder.typicode.com/posts 
-        // 1~10까지 10개의 데이터를 ul => li 출력
-        function printData(obj){
-            let ul = document.getElementById('ul');
-            for(const arr of obj){
-                
-            } 
+    // https://jsonplaceholder.typicode.com/posts /1~10 
+    // 1~10까지 10개의 데이터를 ul => li 출력
 
+    document.getElementById('btn').addEventListener('click',()=>{
+        for(let i=1; i<=10; i++){
+            fetch('https://jsonplaceholder.typicode.com/posts/'+i)
+            .then(resp => resp.json())
+            .then(json => printData(json))
+            .catch(err => console.log(err));
         }
+    });
+    function printData(obj){
+        let ul = document.getElementById('ul');
+        for(const key in obj){
+            ul.innerHTML += `<li>${key} : ${obj[key]}</li>`;
+        }
+        ul.innerHTML += `<hr>`;
+    }
     </script>
 </body>
 </html>

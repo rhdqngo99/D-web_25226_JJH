@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        window 메서드 종류
+    </h1>
+    <ul>
+        <li>
+            alter() / prompt() input 포함 / confirm() 확인/취소
+        </li>
+        <li>
+            window.open('url', 'window name', 'option(size, scroll)');
+        </li>
+        <li>
+            window.close(); // 창 닫기
+        </li>
+        <li>
+            setInterval(function, millesecond);
+            일정 간격 지속으로 실행문을 실행시킬때 사용
+        </li>
+        <li>
+            setTimeout(function, millescond);
+            일정시간동안 실행시킬 때 사용
+        </li>
+    </ul>
+    <button type="button" onclick="openWindow()">popup 열기</button>
+    <button type="button" onclick="closeWindow()">popup 닫기</button>
+    <button type="button" onclick="alertEx()">alert</button>
+    <button type="button" onclick="promptEx()">prompt</button>
+    <button type="button" onclick="confirmEx()">confirm</button>
+    <h3 id="h3"></h3>
+    <a href="04_setTimeout.html">04_setTimeout</a>
+    <script>
+        function confirmEx(){
+            //확인=true / 취소=false 버튼을 포함하는 창
+            let con = confirm('확인하시겠습니까???');
+            if(con){
+                document.getElementById('h3').innerText = "확인";
+            }else{
+                document.getElementById('h3').innerText= "취소";
+            }
+
+        }
+        function promptEx(){
+            // input을 포함하는 창
+            let name = prompt('이름을 입력해주세요');
+            document.getElementById('h3').innerText = name;
+        }
+        function alertEx(){
+            alert('alert 창입니다.');
+        }
+
+        let popup;
+
+        function openWindow(){
+            popup = window.open('../day14/02_itemList.html', "mypop", "width=400, height=500");
+
+        }
+        function closeWindow(){
+            if(popup){
+                popup.close();
+            }
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../test1/style.css">
+</head>
+<body>
+    <h1>Travel</h1> 
+    <ul>
+        <li><a id="home" onclick="clickCity(this)">Home</a></li>
+        <li><a id="seoul" onclick="clickCity(this)">Seoul</a></li>
+        <li><a id="tokyo" onclick="clickCity(this)">Tokyo</a></li>
+        <li><a id="paris" onclick="clickCity(this)">Paris</a></li>
+    </ul>
+    <img src="../image/home.jpg" id="imgTag" alt="그림없음.">
+    <script>
+        // function clickCity(e){
+
+        // }
+        const clickCity = (e)=>{
+            console.log(e);
+            console.log(e.id);
+            let idVale = e.id;
+            document.getElementById('imgTag').src = 
+            `../image/${idVale}.jpg`;
+        }
+    </script>
+</body>
+</html>

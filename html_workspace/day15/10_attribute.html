@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        element 속성은 크게 두가지 속성으로 구분
+        - 태그의 속성(attribute) - css(style) 속성
+    </h1>
+    <ul>
+        <li>
+            태그의 속성은 태그가 갖는 속성이기 때문에 속성명을 그대로 사용
+            tag.id, tag.name, tag.value ...
+        </li>
+        <li>
+            class 처럼 값을 여러개 갖는 속성들은 별도의 명칭을 사용
+            tag.classList => 배열처럼 리턴
+        </li>
+        <li>
+            css관련 속성들은 style. 을 통해 접근 가능
+            tag.style.color / tag.style.font-size X
+        </li>
+        <li>
+            font-size 처럼 - 는 인지불가능. -지우고 카멜케이스로 변경
+            fontSize
+        </li>
+        <li>tag.style.fontSize</li>
+    </ul>
+    <img src="../image/pic00.jpg" alt="pic" id="imgTag" class="a b c d img">
+
+    <script>
+        const imgTag = document.getElementById('imgTag');
+        console.log(imgTag);
+        console.log(imgTag.id);
+        console.log(imgTag.src)
+        console.log(imgTag.classList); //DOMTokenList
+    </script>
+
+</body>
+</html>

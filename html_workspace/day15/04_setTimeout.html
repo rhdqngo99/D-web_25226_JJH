@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        setTimeout(callback function, duration);
+        : duration(millescond) 시간 후에 callback function이 실행
+    </h1>
+    <h3>
+        setTimeout을 할당한 객체는 clearTimeout(할당객체)로 취소가능
+        millescond = 1/1000  1초 => 1000
+    </h3>
+    <button type="button" id="start">시작</button>
+    <button type="button" id="end">끝</button>
+    <h1 id="result">
+        3초 후에 글자가 나타납니다.
+    </h1>
+    <a href="05_setInterval.html">05_setInterval</a>
+
+    <script>
+        let timeObj;
+        document.getElementById('start').addEventListener('click',()=>{
+            timeObj = setTimeout(()=>{
+                document.getElementById('result').innerText = "짠~~~~~~~~!!!!!";
+            },3000);
+        });
+
+        document.getElementById('end').addEventListener('click',()=>{
+            clearTimeout(timeObj);
+
+        })
+    </script>
+</body>
+</html>

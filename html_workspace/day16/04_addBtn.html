@@ -1,0 +1,38 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="makeBtn">element Create</button>
+    <div id="zone"></div>
+
+    <script>
+        // element create 버튼을 클릭하면 #zone 영역에 새 버튼이 생성
+        document.getElementById('makeBtn').addEventListener('click',()=>{
+            let newBtn = `<button type="button" id="newBtn">new Btn</button>`;
+            document.getElementById('zone').innerHTML = newBtn;
+            // new btn 이 인지되는 순간
+        });
+
+        // newBtn이 클릭되면 <h3>newBtn이 클릭되었습니다.</h3>
+        // document.getElementById('newBtn').addEventListener('click',()=>{
+        //     console.log(1111);
+        // })
+
+        // 동적으로 생성된 버튼은 해당 function 밖에서는 인지가 안됨.
+        // 문서 전체에 리스너를 장착 => element 인지
+
+        document.addEventListener('click',(e)=>{
+            console.log(e.target);
+            if(e.target.id == 'newBtn'){
+                document.getElementById('zone').innerHTML += 
+                '<h3>newBtn이 클릭되었습니다.</h3>';
+            }
+        })
+    </script>
+
+</body>
+</html>

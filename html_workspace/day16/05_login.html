@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(171, 194, 237);
+        }
+        .container{
+            width: 300px;
+            background-color: rgb(95, 117, 109);
+            /* 화면의 정중앙에 위치 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            text-align: center;
+            border-radius: 10px;
+            padding: 20px 30px;
+        }
+        .text-field, .btn{
+            width: 100%;
+            padding: 10px;
+            font-size: 15px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+        .btn{
+            background-color:  rgb(148, 153, 150);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .link{
+            margin-top: 30px;
+            
+        }
+        .link>a{
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <input type="text" class="text-field" name="id" placeholder="아이디">
+            <input type="password" class="text-field" name="pw" placeholder="비밀번호">
+            <input type="submit" class="btn" value="로그인" disabled>
+        </form>
+        <div class="link">
+            <a href="">비밀번호를 잊어버리셨나요</a>
+        </div>
+    </div>
+    
+    <script>
+        // event input
+        // id => 8글자 이상
+        // pw => 영어, 숫자, 특수문자 1개씩을 포함한 8글자이상
+        // 두 조건이 맞을 때만 버튼 disabled 상태 해지.
+        // 객체.disabled = true => 비활성화 상태
+        // 객체.disabled = false => 활성화 상태
+        const regExp = new RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*].{8,}$/);
+        const input = document.querySelectorAll(".text-field");  //배열로
+        const btn = document.querySelector(".btn");
+        console.log(input);
+        console.log(btn);
+        input[0].addEventListener('input',()=>{
+            //id 체크 : 8글자 이상
+            
+            if(regExp.test(input[1].value)){
+                if(input[0].value.length > 7){
+                    btn.style.setProperty('background-color','rgb(72, 235, 129)');
+                    btn.disabled = false;
+                }else{
+                    btn.style.setProperty('background-color','rgb(148, 153, 150)');
+                    btn.disabled = true;
+                }
+            }
+
+        });
+        input[1].addEventListener('input',()=>{
+            //pw 체크 : regExp에 설정된 패턴에 맞는지 체크
+            console.log(regExp.test(input[1].value));
+            if(input[0].value.length > 7){
+                if(regExp.test(input[1].value)){
+                    btn.style.setProperty('background-color','rgb(72, 235, 129)');
+                    btn.disabled = false;
+                }else{
+                    btn.style.setProperty('background-color','rgb(148, 153, 150)');
+                    btn.disabled = true;
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

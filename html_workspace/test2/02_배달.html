@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배달의 민족</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            height: 245vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('https://via.placeholder.com/800x600');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .header h3 {
+            font-size: 20px;
+            margin-top: 0;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .menu div {
+            width: 250px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .menu img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .menu h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .menu p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .menu del {
+            color: #888;
+        }
+
+        .menu .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #f8d06d;
+            margin-bottom: 10px;
+        }
+
+        .menu button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: rgb(34, 44, 45);
+            color: white;
+            border: 2px solid rgb(79, 165, 42);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .menu button:hover {
+            background-color: rgb(198, 233, 236);
+            color: black;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                text-align: center;
+            }
+
+            .menu {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .menu div {
+                width: 90%;
+                margin: 0 auto;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .header h3 {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="header">
+            <h1>배달의 민족</h1>
+            <h3>넌 배달할 때가 제일 멋있어</h3>
+        </div>
+
+        <div class="menu">
+            <div id="sushi">
+                <img src="../image/음식4.jpg" alt="초밥사진">
+                <h2>맛있는 초밥</h2>
+                <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+                <p><del>25,000원</del> <span class="price">15,000원</span></p>
+                <button>바로결제</button>
+            </div>
+
+            <div id="stir-fried Rice Cake">
+                <img src="../image/음식.jpg" alt="떡볶이사진">
+                <h2>매콤한 떡볶이</h2>
+                <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+                <p><del>12,000원</del> <span class="price">8,000원</span></p>
+                <button>바로결제</button>
+            </div>
+
+            <div id="boiled pork">
+                <img src="../image/음식2.jpg" alt="보쌈사진">
+                <h2>담백한 보쌈</h2>
+                <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+                <p><del>32,000원</del> <span class="price">25,000원</span></p>
+                <button>바로결제</button>
+            </div>
+
+            <div id="chicken">
+                <img src="../image/음식3.jpg" alt="치킨사진">
+                <h2>빠삭한 치킨</h2>
+                <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+                <p><del>20,000원</del> <span class="price">16,000원</span></p>
+                <button>바로결제</button>
+            </div>
+
+            <div id="dumpling">
+                <img src="../image/음식5.jpg" alt="만두사진">
+                <h2>속꽉찬 만두</h2>
+                <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+                <p><del>15,000원</del> <span class="price">10,000원</span></p>
+                <button>바로결제</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

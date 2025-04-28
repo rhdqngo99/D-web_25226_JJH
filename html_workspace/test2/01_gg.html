@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        @import url(gg.css);
+        .container{
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.211), rgba(0, 0, 0, 0.605)),
+                url(../image/배경3.jpg);
+            background-size: cover;
+        }
+        .navbar {
+            width: 20%;
+            height: 94%; 
+            display: flex;
+            flex-direction: column; 
+            justify-content: flex-start; 
+            align-items: flex-start; 
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .navbar h1 {
+            color: white;
+            font-size: 24px;
+            margin: 0 20px 0 ;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar ul li {
+            margin-bottom: 30px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .navbar ul li a:hover {
+            color: rgb(198, 233, 236);
+        }
+
+        .main {
+            position: absolute;
+            top: 40%;
+            left: 30%;
+            transform: translateY(10%);
+            text-align: left;
+            color: white;
+            z-index: 10;
+            padding-left: 30px;
+        }
+
+        .main h2 {
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .main button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: rgb(34, 44, 45);
+            color: white;
+            border: 2px solid rgb(79, 165, 42);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.5s;
+            
+
+            position: absolute;
+            top: 50%;
+            right: 300px;
+            transform: translateY(80%);
+        }
+
+        .main button:hover {
+            background-color: rgb(198, 233, 236);
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="navbar">
+            <h1>DESIGN</h1>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">HTML5</a></li>
+                <li><a href="#">CSS3</a></li>
+                <li><a href="#">JAVASCRIPT</a></li>
+                <li><a href="#">BOOTSTRAP4</a></li>
+            </ul>
+        </div>
+
+        <div class="main">
+            <h2>Welcome to Front-End World</h2>
+            <a href="#"><button>Learn More</button></a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <style>
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.548), rgba(0, 0, 0, 0.511)), url(../image/image.png);
+        }
+
+        .login-image {
+            width: 290px;
+            height: 80px;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .container {
+            width: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            text-align: center;
+            border-radius: 10px;
+            padding: 20px 30px;
+        }
+
+        .text-field,
+        .btn {
+            width: 100%;
+            padding: 10px;
+            font-size: 15px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: none;
+            outline: none;
+            border-radius: 20px;
+        }
+
+        .btn {
+            background-color: rgb(1, 27, 86);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .link {
+            margin-top: 10px;
+        }
+
+        .link>a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- <img src="../image/LiveStage-3.jpg" class="login-image"> -->
+        <img src="../image/LiveStage-2.jpg" class="login-image">
+
+        <form action="">
+            <input type="text" class="text-field" name="id" placeholder="아이디">
+            <input type="password" class="text-field" name="pw" placeholder="비밀번호">
+            <input type="button" class="btn" value="로그인">
+        </form>
+        <div class="link">
+            <a href="log.html">회원가입</a>
+            <br>
+            <a href="pws.html">비밀번호 찾기</a>
+        </div>
+    </div>
+
+    <script>
+        // 로그인. 회원 DB가 없어 admin, 123456*(관리자)만 가능
+        document.querySelector('.btn').onclick = () => {
+            const inputs = document.querySelectorAll('input');
+            if (inputs[0].value == 'admin' && inputs[1].value == '123456*') {
+                localStorage.setItem('user', 'admin');
+                history.back();
+            } else {
+                alert('로그인에 실패했습니다.');
+                inputs[0].value = '';
+                inputs[1].value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+*{
+  margin: 0;
+}
+.App {
+  text-align: center;
+}
+.header {
+  background-color: beige;
+  color: brown;
+  height: 100px;
+  padding-top: 20px 0;
+  box-sizing: border-box;
+}
+.header>ul{
+  list-style: none;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header>ul>li{
+  margin: 20px 20px;
+  font-weight: 700;
+  font-size: 18px;
+  color: black;
+}
+.home, .comp {
+  background-color: azure;
+  height: 500px;
+  padding: 10px 0;
+}
+.footer {
+  background-color: rgb(249, 218, 181);
+  height: 100px;
+}

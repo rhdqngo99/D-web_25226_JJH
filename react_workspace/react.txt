@@ -1,45 +1,42 @@
-react => js 라이브러리
-react 설치 프로그램 => node.js (설치 패키지 담고있음)
-node.js => (설치 패키지 담고있음.)  npm
-yarn (패키지 관리자) => 설치만 가지고 있는 라이브러리
+react => js 라이브러리 
+react 설치 프로그램 => node.js (설치 패키지 담고 있음.)
+node.js => (설치 패키지 담고 있음.)    npm 
+yarn (패키지 관리자) => 설치만 가지고 있는 라이브러리 
 
-node -v : node 버전 확인
+node -v  : node 버전 확인
 
-react 패키지 설치 : npx create-react-app
-패키지명(react-basic)
+react 패키지 설치 : npx create-react-app 패키지명(react-basic)
 
-- npx create-react-app react-basic 
-- cd react-basic : cd(디렉터리 이동)
-- npm start : 리액트 프로젝트 시작
-- ctrl + c : 서버 중지
-
+- npx create-react-app react-basic
+- cd react-basic  : cd(디렉터리 이동)
+- npm start  : 리액트 프로젝트 시작
+- ctrl + c  : 서버 중지
 
 ----------------------------
 src 폴더안에 컴포넌트를 생성하여 
 App.js 에 추가하는 형태로 작성
 
 - component 규칙
-1. 함수형 컴포넌트(많이 사용) 
-   클래스형 컴포넌트(거의안씀)
+1. 함수형 컴포넌트(많이 사용), 
+   클래스형 컴포넌트(거의 안씀)
 2. 컴포넌트 이름은 반드시 첫글자 대문자 사용.
-3. App.js => jsx
+3. App.js  => jsx
 4. class => className 으로 변경됨.
 5. style => 반드시 객체 형태로 설정
-6. 일반적으로 return은 <div></div> 로 리턴함.
+6. 일반적으로 return은  <div></div> 로 리턴함.
 7. 일반적으로 <div className="컴포넌트 이름"></div>
 
-
-------------------------------------------
+-------------------------------------------------------
 username을 클릭하면, active 속성을 true / false로 변경
-active가 true => color : green / color : black
+active가 true => color : green  / color : black
 
 active 속성을 true / false로 변경 => onToggle
 onToggle => username을 클릭하면 실행
 
-username의 color가 변경
+username 의 color가 변경
 
-------------------------------
-react에서 컴포넌트 간의 이동을 할 때
+-------------------------------------------------------
+react에서 컴포넌트 간의 이동을 할 때 
 router 를 사용
 
 a 태그 대신 router => link를 사용
@@ -49,19 +46,56 @@ npm install react-router-dom
 
 <BrowserRouter> 
 라우터의 영향을 받는 영역 
- <Routes>
-   실제 링크의 영향을 받는 영역
-   <Route Path="경로설정" element={실행 컴포넌트} />
-   <Route Path="/" element={<Home />} />
-   <Route Path="/comp1" element={<Comp1 />} />
- </Routes>
+  <Routes>
+     실제 링크의 영향을 받는 영역
+      <Route path="경로설정" element={실행 컴포넌트} />
+      <Route path="/" element={<Home />} />
+      <Route path="/comp1" element={<Comp1 />} />
+  </Routes>
 </BrowserRouter>
 
 Header 영역의 링크를 설정할 키워드
 <Link to="경로">키워드</Link>
 Link to 의 경로는 <Route path="경로" /> 로 이동
 
------------------------------------------------------
+-------------------------------------------------------
 npx create-react-app react-api
+npx create-react-app 
+cd react-api
+npm start
+-------------------------------------------------------
+
+- users의 정보를 User.jsx  컴포넌트에 랜더링
+- users 중 한명을 클릭하면, 다른 상세 정보를 하단에 출력
+
+1. li  onClick을 걸고, UserOne.jsx 에게 props로 id 전달
+2. 전달할 id 변수를 useState로 설정
+3. id 값이 선택되면 랜더링
+
+userOne.jsx
+-------------------------------------------------------
+npx create-react-app react-reducer
+npx create-react-app 
+cd react-reducer
+npm start
+
+useReducer : useState와 비슷한 일을 함. 
+변수의 상태를 관리하는 일을 함.
+좀더 체계적으로 상태를 관리할 때 사용
+
+
+function reducer(state , action) {
+  // action에 따른 state 변경 로직
+  // 변경된 state를 리턴
+  return nextState;
+} 
+
+const [state, dispatch] = useReducer(reducer, initialState);
+- state : 변수값 (컴포넌트에 사용할 수 있는 상태)
+- dispatch : 액션을 발생시키는 함수
+dispatch({ type : 'INCRE' })
+- type : 'INCRE'  : action의 종류를 타입으로 선언
+- action은 대문자로 쓰는 것이 규칙
+
 
 

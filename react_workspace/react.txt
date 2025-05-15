@@ -60,7 +60,6 @@ Link to 의 경로는 <Route path="경로" /> 로 이동
 
 -------------------------------------------------------
 npx create-react-app react-api
-npx create-react-app 
 cd react-api
 npm start
 -------------------------------------------------------
@@ -75,7 +74,6 @@ npm start
 userOne.jsx
 -------------------------------------------------------
 npx create-react-app react-reducer
-npx create-react-app 
 cd react-reducer
 npm start
 
@@ -97,5 +95,45 @@ dispatch({ type : 'INCRE' })
 - type : 'INCRE'  : action의 종류를 타입으로 선언
 - action은 대문자로 쓰는 것이 규칙
 
+--------------------------------------------
+npx create-react-app react-board
+cd react-board
+npm start
 
+게시판 (Board)
+CRUD 
+- Create (생성) 등록 => DB로 전송
+- Read (읽기) 조회 => DB에서 조회
+- Update (수정) 갱신 => DB의 내용 변경
+- Delete (삭제) 삭제 => DB의 내용 삭제
 
+1. 게시글 등록 페이지 (등록 => 리스트 페이지로 이동)
+2. 게시글 리스트 페이지 (글 선택 => 해당 글의 상세 페이지로 이동)
+3. 상세 페이지 (수정, 삭제, 리스트)
+4. 수정 버튼을 클릭하면 => 수정 페이지로 이동
+5. 수정페이지 (내용을 수정하고, 확인버튼 => 상세 페이지로 이동)
+6. 삭제 버튼을 클릭하면 => 삭제 후 리스트 페이지로 이동
+
+라우터를 이용하여 각 페이지 이동
+npm i react-router-dom 설치
+
+리액트 부트스트랩 install
+npm install react-bootstrap bootstrap
+
+------------------------------------------
+DB 생성 => port 3306
+DB명 : react_board (board)
+user : reactUser / password : mysql
+
+-------------------------------------------
+npx create-react-app react-boarddb  
+cd react-boarddb
+npm start
+
+라이브러리 설치
+- 서버 : 		npm i express
+- DB : 		npm i mysql
+- 비동기 :	npm i axios
+- cors :	npm i cors
+- json : 	npm i json
+- 자동감지 	npm i nodemon => 서버재시작

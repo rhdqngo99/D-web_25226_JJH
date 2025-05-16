@@ -136,4 +136,18 @@ npm start
 - 비동기 :	npm i axios
 - cors :	npm i cors
 - json : 	npm i json
-- 자동감지 	npm i nodemon => 서버재시작
+- 자동감지 	npm i nodemon => 서버재시작 
+
+---------------------------------------------
+1. 서버 열기
+server.js 파일이 있는  위치까지 이동 후 => node server / node server.js
+
+2. 리액트 화면 열기
+현재 실행중인 프로젝트 패키지 폴더로 이동  => npm start
+
+cd react-boarddb
+cd src
+cd server
+node server
+
+*cd react-boarddb/src/server

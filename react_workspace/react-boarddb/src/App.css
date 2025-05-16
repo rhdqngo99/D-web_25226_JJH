@@ -1,0 +1,26 @@
+.App {
+  background-color: azure;
+  width: 1200px;
+  height: 800px;
+  text-align: center;
+  margin: 0 auto;
+}
+.board {
+  width: 90%;
+  margin: 30px auto;
+}
+.board>h2{
+  margin-bottom: 50px;
+}
+.boardList>table{
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+.boardList>table tr{
+  border-bottom: 1px solid rgb(0, 0, 76);
+}
+.boardList>table tr>td{
+  height: 40px;
+}
+

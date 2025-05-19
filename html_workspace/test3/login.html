@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인 페이지</title>
+    <style>
+    * {
+        box-sizing: border-box;
+        font-family: "맑은 고딕", sans-serif;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #c9c4c4;
+    }
+
+    .container {
+        width: 600px;
+        height: 400px;
+        border: 1px solid #000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 90px;
+    }
+
+    .logo {
+        font-size: 36px;
+        font-weight: bold;
+    }
+
+    .login-form {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .login-form .inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .login-form input {
+        width: 120px;
+        padding: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        border: 1px solid #000;
+        background-color: #c9c4c4;
+    }
+
+    .login-form button {
+        width: 60px;
+        height: 65px;
+        font-size: 14px;
+        font-weight: bold;
+        border: 1px solid #000;
+        background-color: #c9c4c4;
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="logo">LOGO</div>
+    <form class="login-form">
+        <div class="inputs">
+        <input type="text" placeholder="아이디" required>
+        <input type="password" placeholder="비밀번호" required>
+        </div>
+        <button type="submit">로그인</button>
+    </form>
+    </div>
+</body>
+</html>
+

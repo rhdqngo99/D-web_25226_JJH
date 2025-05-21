@@ -1,0 +1,84 @@
+Dynamic Wep Project
+- Project name
+- dynamic wep module => servlet version 4.0
+
+servlet version 4.0
+jdk 1.8 +
+Apache Tomcat 9.0.x +
+
+https://mvnrepository.com/artifact/jakarta.servlet.jsp.jstl/jakarta.servlet.jsp.jstl-api/3.0.2
+jstl 라이브러리
+
+----------------------------------
+프로젝트 설정
+window -> preferences
+1. jdk-11 => compiler 11
+2. encoding => java web xml 전부 설정
+3. web beowser => extrnal (Chome) 설정
+4. console size => 1000000 정도로 늘리기
+
+프로젝트 생성 (Dynamic Web Project)
+Dynamic Web Module 4.0 => tomcat 9.0
+
+프로젝트에서 우클릭 => properties
+1. java Build Path => jdk-11
+2. java Compiler => jdk-11
+3. project Facets
+
+하단 서버 올리기
+port => 8080 (인터넷도 8080을 쓰는곳이 많아
+충돌이 자주 발생함)
+8088 / 8089 / 8090 로 변경가능
+path = /로 변경
+
+---------------------------------------
+mvnRepository 사이트에서 라이브러리 다운
+jstl-1.2
+mysql-connector-j
+log4j-api -2.18.0
+log4j-core -2.18.0
+log4j-slf4j-impl -2.18.0
+log4j-web -2.18.0
+slf4j-api -1.7.36
+mybatis 3.5.10
+
+----------------------------------------
+라이브러리 설정
+1. web.xml
+2. log4j.xml
+3. mybatis.xml
+
+--------------------------------------------
+java -> controller / service / dao
+package 생성
+controller
+domain
+service
+repository
+orm
+
+webapp -> jsp/css/js
+폴더 생성
+board -> jsp만
+resources -> css/js/image
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

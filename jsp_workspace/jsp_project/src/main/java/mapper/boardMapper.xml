@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BoardMapper">
+<!-- namespace : mapper 와 DAO 객체를 연결하기 위한 이름 -->
+<!-- sql 구문별 id를 통해 dao에서 어떤 sql을 구문을 실행해야 하는지 인지 -->
+<!-- DAOImpl 클래스에서 namespace.id => 어느 mapper의 어느 sql 구문을 실행해야 할지 결정 -->
+<!-- resultType="나갈 객체 명" / prameterType = "들어오는 객체명(생략가능)" -->
+
+	<!-- 여기서부터 구문 시작 -->
+  <insert id="add" parameterType="domain.BoardVO">
+  	insert into board(title, writer, content) 
+  		values(#{title}, #{writer}, #{content})
+  </insert>
+  
+  <select id="list" resultType="domain.BoardVO">
+  	select * from board order by bno desc
+  </select>
+  
+  <select id="detail" parameterType="int" resultType="domain.BoardVO">
+  	select * from board where bno = #{bno}
+  </select>
+  
+  <update id="up" parameterType="domain.BoardVO">
+  	update board set title = #{title}, content=#{content}, moddate=now()
+  		where bno = #{bno}
+  </update>
+  
+  
+  
+</mapper>

@@ -44,7 +44,7 @@ public class CommentDAOImpl implements CommentDAO {
 	@Override
 	public int delete(int cno) {
 		// TODO Auto-generated method stub
-		int isOk = sql.update("CommentMapper.del", cno);
+		int isOk = sql.delete("CommentMapper.del", cno);
 		if(isOk>0) {sql.commit();}
 		return isOk;
 	}

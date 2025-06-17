@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<!--/* layout:decorate="~{파일경로}" => layout 파일 경로의 변경 영역 지정 */-->
+
+<div layout:fragment="content">
+    <h1>Ex02 HTML Page</h1>
+    <h1>[[${param.name}]]</h1>
+    <h1>[[${param.age}]]</h1>
+    <h1>[[${tvo.name}]]([[${tvo.num}]])</h1>
+    <a th:href="@{/ex03}">ex03으로 이동</a>
+</div>

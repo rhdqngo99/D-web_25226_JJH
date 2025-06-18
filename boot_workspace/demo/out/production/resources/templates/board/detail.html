@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<div layout:fragment="content">
+  <div class="container-md">
+    <h3>No. [[${bvo.bno}]] / Board Detail Page </h3>
+    <form action="/board/modify" method="post" id="modForm">
+      <input type="hidden" name="bno" th:value="${bvo.bno}">
+      <div class="mb-3">
+        <label for="t" class="form-label">title</label>
+        <input type="text" class="form-control" name="title" th:value="${bvo.title}"
+               id="t" placeholder="test title..." readonly>
+      </div>
+      <div class="mb-3">
+        <label for="w" class="form-label">writer</label>
+        <input type="text" class="form-control" name="writer" th:value="${bvo.writer}"
+               id="w" placeholder="test@test.com" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="r" class="form-label">reg_date</label>
+        <input type="text" class="form-control" name="regDate" th:value="${bvo.regDate}"
+               id="r" placeholder="test@test.com" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="c" class="form-label">content</label>
+        <textarea type="text" class="form-control" name="content"
+                  id="c" cols="30" rows="10" readonly>[[${bvo.content}]]</textarea>
+      </div>
+      <button type="button" id="modBtn" class="btn btn-success">Modify</button>
+      <a th:href="@{/board/delete(bno=${bvo.bno})}"><button type="button" id="delBtn" class="btn btn-danger">Delete</button></a>
+      <a th:href="@{/board/list}"><button type="button" class="btn btn-primary">List</button></a>
+    </form>
+
+    <script th:src="@{/js/boardDetail.js}"></script>
+  </div>
+</div>
+

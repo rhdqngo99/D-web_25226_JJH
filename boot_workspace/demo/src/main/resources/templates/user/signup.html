@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<div layout:fragment="content">
+  <div class="container-md">
+    <h3> User Signup Page </h3>
+    <form action="/user/signup" method="post">
+      <div class="mb-3">
+        <label for="e" class="form-label">email</label>
+        <input type="text" class="form-control" name="email" id="e" placeholder="test@test.com">
+      </div>
+      <div class="mb-3">
+        <label for="p" class="form-label">pwd</label>
+        <input type="text" class="form-control" name="pwd" id="p" placeholder="password...">
+      </div>
+      <div class="mb-3">
+        <label for="n" class="form-label">nick_name</label>
+        <input type="text" class="form-control" name="nickName" id="n" placeholder="nickName...">
+      </div>
+      <button type="submit" class="btn btn-primary">signup</button>
+    </form>
+  </div>
+</div>

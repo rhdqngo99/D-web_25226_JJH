@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<div layout:fragment="content">
+    <div class="container-md">
+        <h3> User List Page (ROLE_ADMIN) </h3>
+        <br>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col" th:each="uvo:${userList}">
+                <div class="card border-dark mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img th:src="@{/image/Dog.jpg}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">[[${uvo.nickName }]]</h5>
+                                <p class="card-text">[[${uvo.email }]] ([[${uvo.regDate }]]) </p>
+                                <p class="card-text"><small class="text-body-secondary">Last login [[${uvo.lastLogin }]] ago</small></p>
+
+                                <span class="badge rounded-pill text-bg-success" th:each="authList:${uvo.authList}">[[${authList.auth }]]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,53 @@
+DB 설정 - 2025-06-18
+데이터베이스 명 : bootdb
+user : springuser => bootdb의 권한 부여
+password : mysql
+
+create database bootdb;
+
+grant all privileges on bootdb.* to 'springuser'@'localhost';
+
+flush privileges;
+
+create table board(
+bno bigint auto_increment,
+title varchar(200) not null,
+writer varchar(200) not null,
+content text,
+reg_date datetime default now(),
+primary key(bno));
+
+-- 2025-06-19
+create table file(
+uuid varchar(256) not null,
+save_dir varchar(256) not null,
+file_name varchar(256) not null,
+file_type tinyint(1) default 0,
+bno bigint not null,
+file_size bigint,
+reg_date datetime default now(),
+primary key(uuid));
+
+--2025-06-20
+create table user(
+email varchar(200),
+pwd varchar(256),
+nick_name varchar(200),
+reg_date datetime default now(),
+last_login datetime default now(),
+primary key(email));
+
+create table auth(
+id int auto_increment,
+email varchar(200),
+auth varchar(50),
+primary key(id),
+foreign key(email) references user(email));
+
+create table comment(
+cno bigint auto_increment,
+bno bigint not null,
+writer varchar(200),
+content text,
+reg_date datetime default now(),
+primary key(cno));

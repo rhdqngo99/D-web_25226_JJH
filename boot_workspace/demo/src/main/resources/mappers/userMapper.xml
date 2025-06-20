@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.repository.UserMapper">
+    <insert id="insert">
+        insert into user(email, pwd, nick_name)
+        values(#{email}, #{pwd}, #{nickName})
+    </insert>
+    <insert id="authInsert">
+        insert into auth(email, auth)
+        values(#{email}, 'ROLE_USER')
+    </insert>
+    <select id="selectUser" resultType="com.example.demo.domain.UserVO">
+        select * from user where email = #{email}
+    </select>
+    <select id="selectAuths" resultType="com.example.demo.domain.AuthVO">
+        select * from auth where email = #{email}
+    </select>
+    <select id="getList" resultType="com.example.demo.domain.UserVO">
+        select * from user order by reg_date desc
+    </select>
+    <delete id="remove">
+        delete from user where email = #{email}
+    </delete>
+    <delete id="removeAuths">
+        delete from auth where email = #{email}
+    </delete>
+    <update id="modify">
+        update user set nick_name = #{nickName}, pwd = #{pwd}
+        where email = #{email}
+    </update>
+    <update id="modifyNoPwd">
+        update user set nick_name = #{nickName}
+        where email = #{email}
+    </update>
+
+</mapper>

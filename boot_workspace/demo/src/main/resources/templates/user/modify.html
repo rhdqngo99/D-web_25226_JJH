@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<div layout:fragment="content">
+    <div class="container-md" th:with="uvo=${#authentication.getPrincipal().userVO}">
+        <h3> User Modify Page </h3>
+        <br>
+        <form action="/user/modify" method="post">
+            <div class="col">
+                <div class="card border-dark mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img th:src="@{/image/Dog.jpg}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <input type="hidden" name="email" th:value="${uvo.email }">
+                                <h5 class="card-title">
+                                    <input type="text" name="nickName" class="form-control" th:value="${uvo.nickName }">
+                                    <input type="text" name="pwd" class="form-control" placeholder="password...">
+                                </h5>
+                                <p class="card-text">[[${uvo.email }]] ([[${uvo.regDate }]]) </p>
+                                <p class="card-text"><small class="text-body-secondary">Last login [[${uvo.lastLogin }]] ago</small></p>
+                                <th:block th:each="auths:${uvo.authList}">
+                                    <span class="badge rounded-pill text-bg-success">[[${auths.auth }]]</span>
+                                </th:block>
+                                <button type="submit" class="btn btn-primary btn-sm">modify</button>
+                                <a th:href="@{/user/remove}"><button type="button" class="btn btn-danger btn-sm">remove</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

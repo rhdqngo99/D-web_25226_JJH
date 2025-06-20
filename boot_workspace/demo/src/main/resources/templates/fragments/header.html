@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!--/* th:fragment="이름" : layout 에서 사용할 조각 */-->\
+<div th:fragment="header">
+    <h1>My First Spring Boot Project</h1>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">
+                <img th:src="@{/image/LiveStage-2.jpg}" alt="Bootstrap" width="50" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/board/register}">BoardRegister</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/board/list}">BoardList</a>
+                    </li>
+                    <!--/* isAnonymous() : 권한이 없는 경우 */-->
+                    <!--/* isAuthenticated() : 권한이 있을 경우 */-->
+
+                    <!--/* 로그인 후 나오지 말아야 하는 메뉴 (비권한일 경우만 메뉴출력) */-->
+                    <!--/* th:block 로 묶어서 사용 가능 */-->
+                    <th:block sec:authorize="isAnonymous()">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/user/signup}">SignUp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/user/login}">Login</a>
+                        </li>
+                    </th:block>
+
+                    <!--/* 권한이 있을 경우 표시 개별 메뉴마다 추가 가능 */-->
+                    <li class="nav-item" sec:authorize="isAuthenticated()">
+                        <a class="nav-link" th:href="@{/user/modify}"
+                           th:with="auth=${#authentication.getPrincipal()}" >([[${auth.username}]])Modify</a>
+                    </li>
+                    <!--/* 특정 권한에 따른 설정 */-->
+                    <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+                        <a class="nav-link" th:href="@{/user/list}">UserList(ADMIN 권한만)</a>
+                    </li>
+
+                    <li class="nav-item" sec:authorize="isAuthenticated()">
+                        <a class="nav-link" th:href="@{/user/logout}">Logout</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<div class="container-md" layout:fragment="content">
+    <h1> User List Page (ADMIN) </h1><br>
+    <div class="row">
+        <div class="col" th:each="mvo:${userList}">
+            <div class="card" style="width: 18rem;">
+                <img src="/image/Dog2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">[[${mvo.nickName }]]</h5>
+                    <p class="card-text">[[${mvo.email }]]</p>
+                    <div class="mb-3">
+                        <span class="badge text-bg-warning" th:each="authList: ${mvo.authList}">[[${authList.auth }]] </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>

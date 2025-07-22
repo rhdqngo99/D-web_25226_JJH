@@ -1,0 +1,9 @@
+-- DB 생성
+create database berrydb;
+
+-- 유저 생성
+create user 'berryuser'@'localhost' identified by 'mysql';
+
+-- 권한 부여
+grant all privileges on berrydb.* to 'berryuser'@'localhost';
+flush privileges;
